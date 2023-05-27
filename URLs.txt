@@ -1,0 +1,2 @@
+https://quovadis.test.apimanagement.eu10.hana.ondemand.com/GWSAMPLE_BASIC
+https://quovadis.test.apimanagement.eu10.hana.ondemand.com/GWSAMPLE_BASIC/ProductSet('${property.ProductID}')/ToSalesOrderLineItems

@@ -1,0 +1,2532 @@
+{
+	"info": {
+		"_postman_id": "136da6a2-161f-4561-9d4b-2463412496d4",
+		"name": "ModelingBasics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SenderInitiatedScenario",
+			"item": [
+				{
+					"name": "SenderInitiatedScenario_GetXsrfToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"XSRFToken\",pm.response.headers.get(\"x-csrf-token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-CSRF-Token",
+								"value": "fetch",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/FirstFlowWithSenderChannel",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"FirstFlowWithSenderChannel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SenderInitiatedScenario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-Token",
+								"value": "{{XSRFToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"productIdentifier\": \"HT-1081\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/FirstFlowWithSenderChannel",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"FirstFlowWithSenderChannel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AccessHeaderAndPropertiesInMessageMapping",
+			"item": [
+				{
+					"name": "AccessHeaderAndPropertiesInMessageMapping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OrderID",
+								"type": "text",
+								"value": "9018345681"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<root>\r\n    <productIdentifier>HT-1080</productIdentifier>\r\n    <quantity>4</quantity>\r\n</root>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/AccessHeaderProperties/MessageMapping",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"AccessHeaderProperties",
+								"MessageMapping"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AccessHeaderAndPropertiesInXSLTMapping",
+			"item": [
+				{
+					"name": "AccessHeaderAndPropertiesInXSLTMapping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "orderid",
+								"type": "text",
+								"value": "8216000002"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<root>\r\n    <productIdentifier>HT-1082</productIdentifier>\r\n    <quantity>2</quantity>\r\n</root>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/AccessHeaderProperties/XSLT",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"AccessHeaderProperties",
+								"XSLT"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AccessHeaderAndPropertiesInXPATHandConditions",
+			"item": [
+				{
+					"name": "AccessHeaderAndPropertiesInXPATHandConditions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<root>\r\n    <Category>Notebooks</Category>\r\n    <MaxPrice>1000.00</MaxPrice>\r\n</root>\r\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/AccessHeaderProperties/XPATHandConditions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"AccessHeaderProperties",
+								"XPATHandConditions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CsvToXmlConverter",
+			"item": [
+				{
+					"name": "CsvToXmlConverter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Category;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nComputer system accessories;AD-1000;0.4600;KG;m;0.0300;0.3000;0.010;Flyer\r\nNotebooks;HT-1000;0.3200;KG;m;0.0300;0.1800;4.200;Notebook Basic 15\r\nNotebooks;HT-1001;0.2900;KG;m;0.0310;0.1700;4.500;Notebook Basic 17\r\nNotebooks;HT-1002;0.2800;KG;m;0.0250;0.1900;4.200;Notebook Basic 18\r\nNotebooks;HT-1003;0.3200;KG;m;0.0400;0.2100;4.200;Notebook Basic 19\r\nPDAs/Organizers;HT-1007;0.3200;KG;m;0.0300;0.2200;0.200;1UMTS PDA\r\nNotebooks;HT-1010;0.3300;KG;m;0.0300;0.2000;4.300;Notebook Professional 15\r\nNotebooks;HT-1011;0.3300;KG;m;0.0200;0.2300;4.100;Notebook Professional 17\r\nPDAs/Organizers;HT-1020;0.1000;KG;m;0.1700;0.0180;0.160;Easy Hand III\r\nPDAs/Organizers;HT-1021;0.1100;KG;m;0.1800;0.0170;0.180;Easy Hand V\r\nPDAs/Organizers;HT-1022;0.8400;KG;m;0.1400;0.0150;0.200;Easy Hand VII\r\nPDAs/Organizers;HT-1023;0.8000;KG;m;0.1300;0.0160;0.800;Easy Power\r\nFlat screens;HT-1030;0.3700;KG;m;0.3600;0.1200;18.000;Ergo Screen\r\nFlat screens;HT-1031;0.4080;KG;m;0.4300;0.1900;22.000;Easy Pixel\r\nFlat screens;HT-1032;0.4080;KG;m;0.4300;0.1900;21.000;Beam Screen\r\nFlat screens;HT-1035;0.3900;KG;m;0.4100;0.2000;14.000;Flat Basic 15\r\nFlat screens;HT-1036;0.4500;KG;m;0.4600;0.2600;15.000;Flat Future\r\nFlat screens;HT-1037;0.5450;KG;m;0.3910;0.2210;17.000;Flat X-large\r\nLaser printers;HT-1040;0.5100;KG;m;0.3000;0.4600;32.000;Laser Professional Eco\r\nLaser printers;HT-1041;0.4800;KG;m;0.2600;0.4200;23.000;Laser Basic\r\nLaser printers;HT-1042;0.5300;KG;m;0.6500;0.5000;15.000;Laser Allround\r\nInk jet printers;HT-1050;0.4500;KG;m;0.1800;0.3420;3.000;Deskjet Super Color\r\nInk jet printers;HT-1051;0.4600;KG;m;0.2500;0.3200;1.900;Deskjet Mobile\r\nInk jet printers;HT-1052;0.4100;KG;m;0.2800;0.4200;18.000;Deskjet Super Highspeed\r\nMultifunction printers;HT-1055;0.5500;KG;m;0.2900;0.4500;6.300;Multi Print\r\nMultifunction printers;HT-1056;0.5100;KG;m;0.2200;0.4130;4.300;Multi Color\r\nMice;HT-1060;0.0600;KG;m;0.0350;0.1450;0.090;Cordless Mouse\r\nMice;HT-1061;0.0700;KG;m;0.0310;0.1500;0.090;Speed Mouse\r\nMice;HT-1062;0.0710;KG;m;0.0400;0.1400;0.030;Track Mouse\r\nKeyboards;HT-1063;0.5000;KG;m;0.0350;0.2100;2.100;Ergonomic Keyboard\r\nKeyboards;HT-1064;0.5200;KG;m;0.0300;0.2500;1.800;Internet Keyboard\r\nKeyboards;HT-1065;0.5140;KG;m;0.0400;0.2300;2.300;Media Keyboard\r\nMousepads;HT-1066;0.3000;G;m;0.0050;0.3000;80.000;Mousepad\r\nMousepads;HT-1067;0.2800;G;m;0.0040;0.2200;150.000;Ergo Mousepad\r\nMousepads;HT-1068;0.2400;G;m;0.0060;0.2400;150.000;Designer Mousepad\r\nFlat screens;HT-1069;0.3200;G;m;0.2300;0.0020;170.000;Notebook LCD Display\r\nGraphic cards;HT-1070;0.1500;KG;m;0.0450;0.1800;0.010;Proctra X\r\nGraphic cards;HT-1071;0.1400;KG;m;0.0350;0.1750;0.012;Gladiator MX\r\nGraphic cards;HT-1072;0.1500;KG;m;0.0310;0.1680;0.013;Hurricane GX\r\nGraphic cards;HT-1073;0.1520;KG;m;0.0410;0.1720;0.010;Psimax\r\nScanners;HT-1080;0.3400;KG;m;0.0500;0.4800;2.300;Photo Scan\r\nScanners;HT-1081;0.3100;KG;m;0.0700;0.4300;2.400;Power Scan\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\nScanners;HT-1083;0.3500;KG;m;0.1000;0.4000;3.200;Jet Scan Professional\r\nMultifunction printers;HT-1085;0.4500;KG;m;0.2200;0.4200;23.200;Copymaster\r\nSpeakers;HT-1090;0.1200;KG;m;0.1600;0.1000;3.000;Surround Sound\r\nSpeakers;HT-1091;0.1300;KG;m;0.1750;0.1100;1.400;Blaster Extreme\r\nSpeakers;HT-1092;0.1240;KG;m;0.1810;0.1040;2.100;Sound Booster\r\nHeadsets;HT-1095;0.2400;G;m;0.2300;0.0190;187.000;Lovely Sound 5.1 Wireless\r\nHeadsets;HT-1096;0.2500;G;m;0.1900;0.0170;130.000;Lovely Sound 5.1\r\nHeadsets;HT-1097;0.2130;G;m;0.1970;0.0240;60.000;Lovely Sound Stereo\r\nSoftware;HT-1100;0.1500;KG;m;0.2100;0.0650;1.200;Smart Office\r\nSoftware;HT-1101;0.1400;KG;m;0.2400;0.0670;0.800;Smart Design\r\nSoftware;HT-1102;0.1600;KG;m;0.2700;0.0600;0.800;Smart Network\r\nSoftware;HT-1103;0.1100;KG;m;0.2200;0.0340;0.800;Smart Multimedia\r\nSoftware;HT-1104;0.1000;KG;m;0.3000;0.0300;1.100;Smart Games\r\nSoftware;HT-1105;0.1600;KG;m;0.2100;0.0400;0.700;Smart Internet Antivirus\r\nSoftware;HT-1106;0.1790;KG;m;0.2310;0.0420;0.900;Smart Firewall\r\nSoftware;HT-1107;0.1200;KG;m;0.1900;0.0150;0.500;Smart Money\r\nComputer system accessories;HT-1110;0.2000;KG;m;0.0430;0.0800;0.030;PC Lock\r\nComputer system accessories;HT-1111;0.3100;KG;m;0.0700;0.0900;0.020;Notebook Lock\r\nComputer system accessories;HT-1112;0.0900;KG;m;0.0130;0.0820;0.500;Web cam reality\r\nComputer system accessories;HT-1113;0.1800;KG;m;0.0090;0.2200;0.200;Screen clean\r\nComputer system accessories;HT-1114;0.5100;KG;m;0.3500;0.1900;1.800;Leather bag professional\r\nTelecommunication;HT-1115;0.1930;KG;m;0.1200;0.1800;1.300;Modem Hyper Speed\r\nTelecommunication;HT-1116;0.1900;KG;m;0.1400;0.2100;0.300;ISDN direct\r\nTelecommunication;HT-1117;0.1190;KG;m;0.1050;0.2410;0.400;ADSL progress T1\r\nComputer system accessories;HT-1118;0.0150;KG;m;0.0120;0.0870;0.015;USB Stick 1 GB\r\nComputer system accessories;HT-1119;0.0200;G;m;0.0390;0.0310;88.000;USB Stick 2 GB\r\nKeyboards;HT-1120;0.4500;KG;m;0.0320;0.1940;1.000;Keybord, english international\r\nFlat screens;HT-1137;0.5400;KG;m;0.3800;0.2200;18.000;Flat X-large II\r\nFlat screens;HT-1138;0.5300;KG;m;0.4400;0.2000;4.200;Flat XL\r\nPCs;HT-1210;0.2800;KG;m;0.4300;0.3100;2.300;PC Power Station\r\nServers;HT-1500;0.3400;KG;m;0.2300;0.3500;18.000;Server Basic\r\nServers;HT-1501;0.2900;KG;m;0.2700;0.3000;25.000;Server Professional\r\nServers;HT-1502;0.2200;KG;m;0.3700;0.2730;35.000;Server Power Pro\r\nPCs;HT-1600;0.2140;KG;m;0.3800;0.2900;4.800;Family PC Basic\r\nPCs;HT-1601;0.2500;KG;m;0.4020;0.3170;5.300;Family PC Pro\r\nPCs;HT-1602;0.2650;KG;m;0.4700;0.3400;5.900;Gaming Monster\r\nPCs;HT-1603;0.2700;KG;m;0.4200;0.2800;6.800;Gaming Monster Pro\r\nPortable Players;HT-2000;0.2140;KG;m;0.2760;0.1900;0.790;7 inch Widescreen Portable DVD Player w MP3\r\nPortable Players;HT-2001;0.2400;KG;m;0.2900;0.1950;0.840;10 inch Portable DVD player\r\nPortable Players;HT-2002;0.2100;KG;m;0.1400;0.1650;0.720;Portable DVD Player with 9 inch LCD Monitor\r\nComputer system accessories;HT-2025;0.6700;KG;m;0.2500;0.2300;0.650;CD/DVD case: 264 capacity\r\nComputer system accessories;HT-2026;0.2100;KG;m;0.1300;0.1020;0.200;Audio/Video Cable Kit - 12 ft\r\nComputer system accessories;HT-2027;0.0550;KG;m;0.0200;0.0200;0.150;Removable CD/DVD Laser Labels\r\nBeamers;HT-6100;0.1800;KG;m;0.1200;0.1500;1.700;Beam Breaker B-1\r\nBeamers;HT-6101;0.3200;KG;m;0.1800;0.2100;2.000;Beam Breaker B-2\r\nBeamers;HT-6102;0.3040;KG;m;0.2300;0.2310;2.500;Beam Breaker B-3\r\nPortable Players;HT-6110;0.3700;KG;m;0.0600;0.2400;2.400;Play Movie\r\nPortable Players;HT-6111;0.3800;KG;m;0.0620;0.2600;3.100;Record Movie\r\nMP3-Players;HT-6120;0.0500;G;m;0.0600;0.0180;134.000;Basic Booster A\r\nMP3-Players;HT-6121;0.0510;G;m;0.0920;0.0140;134.000;Basic Booster B\r\nMP3-Players;HT-6122;0.0760;G;m;0.0840;0.0200;266.000;Power Pro Player 40\r\nMP3-Players;HT-6123;0.1300;G;m;0.1430;0.0180;267.000;Power Pro Player 80\r\nTV flat screens;HT-6130;0.7800;KG;m;0.5500;0.2210;2.600;Flat Watch HD32\r\nTV flat screens;HT-6131;0.9910;KG;m;0.6100;0.2600;2.200;Flat Watch HD37\r\nTV flat screens;HT-6132;12.800;KG;m;0.7910;0.2300;1.800;Flat Watch HD41\r\nPDAs/Organizers;HT-7000;0.0810;KG;m;0.1210;0.1300;0.500;Copperberry\r\nPDAs/Organizers;HT-7010;0.0700;KG;m;0.1300;0.1500;0.500;Silverberry\r\nPDAs/Organizers;HT-7020;0.0740;KG;m;0.1120;0.1620;0.500;Goldberry\r\nPDAs/Organizers;HT-7030;0.0860;KG;m;0.1040;0.1540;0.500;Platinberry\r\nNotebooks;HT-8000;0.3100;KG;m;0.0310;0.1900;4.000;ITelO FlexTop I4000\r\nNotebooks;HT-8001;0.3200;KG;m;0.0340;0.2000;4.200;ITelO FlexTop I6300c\r\nNotebooks;HT-8002;0.3800;KG;m;0.0410;0.2100;3.500;ITelO FlexTop I9100\r\nNotebooks;HT-8003;0.4800;KG;m;0.0450;0.3100;3.800;ITelO FlexTop I9800",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/CsvToXml",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"CsvToXml"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "XmlToCsvConverter",
+			"item": [
+				{
+					"name": "XmlToCsvConverter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<root>\r\n    <category>Scanners</category>\r\n</root>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/XmlToCsv",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"XmlToCsv"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "JSONToXMLAndXMLToJSON",
+			"item": [
+				{
+					"name": "JSONTo XMLConverterAndXMLToJSONConverter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "context",
+								"value": "ModelingBasics-JsonToXmlAndXmlToJson",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"Product\":  [ {\"ProductId\":\"HT-8001\"}]}",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/Converter/JSONtoXMLAndXMLtoJSON",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"Converter",
+								"JSONtoXMLAndXMLtoJSON"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "MappingContext",
+			"item": [
+				{
+					"name": "MappingContext",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ns0:ProductHierarchy xmlns:ns0=\"http://demo.sap.com/mapping/context\">\r\n\t<MainCategory Name=\"Printers and Scanners\">\r\n\t\t<Category Name=\"Multifunction printers\">\r\n\t\t\t<Product>Multi Print</Product>\r\n\t\t\t<Product>Multi Color</Product>\r\n\t\t</Category>\r\n\t\t<Category Name=\"Scanners\">\r\n\t\t\t<Product>Power Scan</Product>\r\n\t\t\t<Product>Photo Scan</Product>\r\n\t\t</Category>\t\r\n\t</MainCategory>\r\n\t<MainCategory Name=\"Computer systems\">\r\n\t\t<Category Name=\"Computer system accessories\">\r\n\t\t\t<Product>Notebook Lock</Product>\r\n\t\t\t<Product>USB Stick 1 GB</Product>\r\n\t\t\t<Product>USB Stick 2 GB</Product>\r\n\t\t\t<Product>Web cam reality</Product>\r\n\t\t</Category>\r\n\t\t<Category Name=\"Notebooks\">\r\n\t\t\t<Product>Notebook Basic 15</Product>\r\n\t\t\t<Product>Notebook Pro 15</Product>\r\n\t\t</Category>\r\n\t\t<Category Name=\"PCs\">\r\n\t\t\t<Product>Gaming Monster</Product>\r\n\t\t\t<Product>Gaming Monster Pro</Product>\r\n\t\t</Category>\t\t\r\n\t</MainCategory>\r\n\t<MainCategory Name=\"Computer components\">\r\n\t\t<Category Name=\"Graphic cards\">\r\n\t\t\t<Product>Hurricane GX</Product>\r\n\t\t\t<Product>Gladiator MX</Product>\r\n\t\t</Category>\r\n\t\t<Category Name=\"Telecommunication\">\r\n\t\t\t<Product>Modem Hyper Speed</Product>\r\n\t\t\t<Product>ADSL progress T1</Product>\r\n\t\t\t<Product>ISDN direct</Product>\r\n\t\t</Category>\t\r\n\t</MainCategory>\r\n</ns0:ProductHierarchy>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/MappingContext",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"MappingContext"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "FileTransfer",
+			"item": [
+				{
+					"name": "ConcatenatingFiles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "file",
+								"value": "product.xml",
+								"type": "text"
+							},
+							{
+								"key": "directory",
+								"value": "guidelines",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Product>\r\n<ProductId>HT-1000</ProductId>\r\n<ProductName>Notebook Basic 15</ProductName>\r\n<Quantity>1</Quantity>\r\n<CurrencyCode>EUR</CurrencyCode>\r\n<Price>956.00</Price>\r\n</Product>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/FileTransfer/ConcatenatingFiles",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"FileTransfer",
+								"ConcatenatingFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CombineXMLFiles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "directory",
+								"value": "guidelines",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<PurchaseOrder PurchaseOrderNumber=\"99401\" OrderDate=\"2019-05-06\">\r\n<Item ItemNumber=\"10\">\r\n<ProductId>HT-1002</ProductId>\r\n<Quantity>10</Quantity>\r\n</Item>\r\n</PurchaseOrder>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/FileTransfer/CombineXML",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"FileTransfer",
+								"CombineXML"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "MappingXMLToJSON",
+			"item": [
+				{
+					"name": "MappingXMLToJSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OrderId",
+								"value": "10001234",
+								"type": "text"
+							},
+							{
+								"key": "SupplierId",
+								"value": "100000042",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<Products>\r\n    <Product>\r\n      <ProductId>HT-1081</ProductId>\r\n      <Name>Power Scan</Name>\r\n      <Category>Scanners</Category>\r\n      <Description>Flatbed scanner - 1200 dpi x 1200 dpi - 216 x 297 mm - Hi-Speed USB  - Bluetooth Ver. 1.2</Description>\r\n      <Weight>2.40</Weight>\r\n      <WeightUnit>KG</WeightUnit>\r\n      <DimensionHeight>0.07</DimensionHeight>\r\n      <DimensionWidth>0.31</DimensionWidth>\r\n      <DimensionDepth>0.43</DimensionDepth>\r\n      <DimensionUnit>m</DimensionUnit>\r\n      <Price>89.00</Price>      \r\n      <CurrencyCode>EUR</CurrencyCode>\r\n      <Quantity>2</Quantity>\r\n      <QuantityUnit>EA</QuantityUnit>\r\n    </Product>\r\n    <Product>\r\n      <ProductId>HT-1082</ProductId>\r\n      <Name>Jet Scan Professional</Name>\r\n      <Category>Scanners</Category>\r\n      <Description>Flatbed scanner - Letter - 2400 dpi x 2400 dpi - 216 x 297 mm - Hi-Speed USB  - Bluetooth Ver. 1.2</Description>\r\n      <Weight>3.20</Weight>\r\n      <WeightUnit>KG</WeightUnit>\r\n      <DimensionHeight>0.12</DimensionHeight>\r\n      <DimensionWidth>0.33</DimensionWidth>\r\n      <DimensionDepth>0.41</DimensionDepth>\r\n      <DimensionUnit>m</DimensionUnit>\r\n      <Price>169.00</Price>\r\n      <CurrencyCode>EUR</CurrencyCode>\r\n      <Quantity>4</Quantity>\r\n      <QuantityUnit>EA</QuantityUnit>\r\n    </Product>\r\n</Products>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/MappingXMLToJSON",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"MappingXMLToJSON"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Base64EncoderDecoder",
+			"item": [
+				{
+					"name": "Base64Encoder",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "productID",
+								"value": "HT-2001",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"value": "‰PNG\n\u001a\n   \nIHDR   ®   ˜\b\u0002   òME\t   \u0001sRGB ®Î\u001cé   \u0004gAMA  ±\u000büa\u0005   \tpHYs  \u000eÃ  \u000eÃ\u0001Ço¨d  hcIDATx^í}\u0007|\u0015Uú¶«@zï½÷žÜÞ’›Þ{ï•4BB\u001aB€ô )\u0010zï½‹Š\nº®»nSwÝU×ÝÕU×Þ\u001b¨ßsæL®—„ A\\õÿñüN&gÎ93wæœgž÷}ÏÌ{ß·÷p\u000f\fîQá\u001eXÜ£Â=°¸G…{`q\n÷Àâ\u001e\u0015îÅ=*Ü\u0003‹\u001f…\nß|ó\n›û_á\u0007~\"6WÞÃl{›­üÿ\u0006îc:a\u000eÀ6ln\u0006\u0014U_ý5Íü\u0018`\u000eû;ÐÂ\u001fø‰Ø\\y\u000fŠUö3\u0018Ðr¦ž@QHó4ó‹ÆMT­aÀ\u0016}\u001fÐR¹› Z>­p&h3e°\u0015SÀ\u001eØŠ\u0019U3\u000bg–Ü\u000e”·Räñ¹Ê\u001fMAÛ ¨RÎ(Wýrñƒ¨ hC3\u0014L\u001f~\u000f\u0003æ„iûg>™€]¿=|ï!Í<löc\u0018Ð\u0012Ú€-R: åü/\u0017s6\u00107\u0005í\u001a€]ÿ>Ü~ËiÃ£ ý8\nZò½-ÉP3`+n\u000ft[vE‰1´\u001c åÿ\u0007pw¨0\u001bØÞš\u0001¶ú–\n”ÇLQxS(†G\u0001Z¢\f¶B\tlÅ\u0014f\u0016Ò’[ãÖ\u0007öËÂ]Ž °G6÷\u001d´ûØ•ÿ\u0013¸\u0013U`7Ew°ÿï\u000e°cºïë×¯ùåW_|ñ%ÒgŸ}NÒçŸúégŸ|òÉÇ\u001füÑG\u001f}ø!Ò‡\u001f| H\u001f¼ÿþ\u0007ï¾ûî;ï¼óÖ[o#1À\u001a€â÷Þ{ï}\u0006h÷ÁG\u001fb\u0007\u001fcWŸ|ò)ö‰\u0004àƒ¾úê\u001aƒëlÂA\\ÿ\u001a\têÀ\u001cÝÍ¡è\nÚ3¿hÜa0ù5é#\"¡´#ž{ö¹Ý»÷mžÜ¶uËŽ­[wLNnÜ´\u0015«XNb9Iò›7o'%ÈoÞ¾eËv´Ü²™,‘¶oÛ…´cûî\u001d;vïÞµoçÎ=Èc¹k×^¬b¹kç^ZˆfØÿæÍÛ°Ü¶mçö\u001d»°Év¤í»°ºeë\u000eìyÓäV’6mÙ4¹\u0005«¨B\u001b¤={öcW;±ÏÝûvïÙ¿s÷¾ø¬]{÷ì=°kïÝ{HÚEÒþ]»÷c¹s÷þ\u001d;÷Ïe–Øj\u0007ù¸ûöíÿÏëoÐ~ PÎÿr1g\u0003A(pýk\u0018Õo®_ûöëë_~þÅ¹3çRSÒœÜœ\u001cÝ==\u0002ü|yþ~|±0P*\f\n’………ÆDE&ÄÇ¥&'e&'e¥¥æde\u0016æd\u0017\u0015ä•\u0015\u0015V”•V/,[TYQ[]U¿¸¦qI]sScËÒæÖåËÚÛV¬ììXÝµ²gõªÞžî¾Þ¡ÞžÁ¾ÞµHÝkú{{†Ö®\u001d]·~\u0002idýøú\n\u0013\u001bF7­ß°qdÝøÚáÑá‘±þ‘•«zVvuw÷\föô\u000ev­ê]½z seïŠ¶Õ­­]Ë[»\u001a—¶Õ7µÖ.YV]ÓP±¨¾¬²¶hauAIe^qy^Qy~qyv^IZF^RjVBRZ\\|rTt¼<8\\*“K¤A]«Ö¼õÖ;´7 \u001e´g~é˜ƒ* 5–PÍo\u0018ÍüæÚµ¯¿úâùgŸËÍÎóp÷\u000e\u000bÂ0—•.®«mjlhioíêl[½º«¯¯wxíÐè†õ›6N@$vnžÜ¹u\u000b®ï}{v\u001f:tðÄÑ#§O\u001c?wüØÙ“'. sâ82X=sìèi,±zêäù3§/ž?÷\u0010Ò¹³—Îžyðô©\u000bÈ\\zèÑ‡\u001e~ìâƒ =xéÑK\u000f=váâ#§Ï\\8~âì‰“ç\u000e\u001d>±}ÇÞÍ[p\u0019ïÅ•¼yËÎñ‰mãã[7ŒN\u000eŒ\u000f\u000e!\n\fö\n¬[Ý3„´rÍ@ÛÊîe+V6-ïhnél^ÞQW¿´²º®´|ÑÂŠš²…Õù\u0005¥¹yE9¹ùñ\tI¡¡á¿ùÍÓè\u0004ra0 ]4W\u0011¸\u0011lÅ\f°ÕJ`+nVuS°­gÇœ©@\u0004XQòÿÓO>:}êtrRªT\u0012$\u0011\u0007\u0005\u0005†WUÕ¯ìì^ÕÕÛ×³vdptx-H°qltrtÃ&,'Æ·lœ€±Ø±cûÞ;öíÝsèÀþ£G\u000eŸ<|\bœ8uèàq¤Ã‡Nb‰r&\u001d;xà\u00182ûö\u001eFÚ½ëÀöm{¶n)Ù»ß‘#GN\u001e=vêØñÓÇOœ9yê\u001cH€%V\u000f\u001d>~ààÑ}û\u000fCç·lÝ¹irÛøÄæ\nc\u001b¡\u001fP‹Áu½}k!\u0015+Úºª«ëòòK2s\niÊÊ-bS^1Vss‹ŠK*JJ‘*KË*\u000b\nKÓ3rÒÒ³\u0012“R\"#£\u001e{ì1Ú!l·Ü)\u001b\u0014 ÃuË\u0001£\n(Ø¢\u0019¸uí­1«`ë§0Uú-Î\u0018§\n·\nk\u001f~ðî¶mÛ££cåò0\u001f\u001fŽ¯\u001f¿¨¨rÉ’eõõË\u001a\u001b–/kZÑÑ¾\nÂ¾nd|ltÓ¦[·oÛ\u0011=zää™Ó\u0017pq_¼ððC—\u001e}ø¡Ç°¼ôàå\u0007/>rþ\u001c¹îOŸ:\u000fI@³C\u0007A\u0005ðàÐŽí{¶lÞ91¾ydxt \u0018–¢§{pÕªÞ®U=«×ô­ZÝÛÑ¹º­½«¥µcÙò¶Æ¦åH\nËê–4-©o^ºlEëŠNÔ¶µu­X±²¥¥£µµsùòöÅµ……eiéÙ\tIéñ\t©qñ)\t‰iI)™É)™\tÉéq\t°héé\u0019ÙYY¹X&§¤#54.E\"Â\u0010ŸðØcÓ.aDá{x@[R°Es\u0007»=\u0003¶è®â¶¨À\u0016\u0011&Pã@j± \u00156Nl\f\u000b‹\b\t\tOLJ+)©ZR·¼»g¨cåšÚº¦ÚÅÍM­K›W46,«¯kn¬_¶lé\n8\u0001­-\u001dm­+Á’•kVuõ`\tŸ ½­‹–À3X³º\u000fÎAßZŒ:ÒÐàºá¡\nX\u000e\u000eŒP\u001e`«Ž¶UÍK[\u001b\u001aÉ×Ö5VU×–W,*.)Ï/(ÉÉ-‚’gç\u0014à\"ÎÈÌÅÕŒkº¬¬²´¤¢¨°,?¯˜&\\ôh–—_ŒeVv>sÅg§¤fâDà\u0019ÄÅ&DGÅ†‡Gâì‚‚‚e² ‰4\u0010^ê¶í;\u000b‹J’’R.?BT\u0001øŸQ\u0001¸Í=Ðf »~{˜\u001b\u0015 å•wßykÏî=\t\tIAòP\fCKk×ê5k\u000f\u001f9µ{÷ŠÊÅ-\u0018Î>¸l]k:Ú»ÚÛW®XÑ±|ùŠeËZ››—76.]²¤±~ISC}scÃÒúú&¬65.EmËò¶\u0015­\u001d\u001d]+W®^Ù¹\nKìaõêžžžþ5kzWC\tVõt­\\ÓÑÑÕ†}¶u¶´¶/Ãn—¯hj^^ßÐ\\[×P³xIUõâÊªšòŠêâ’…ù\u0005Åyy…H¸Ä3Ò³ÒÓ2SS3’’R\u0013\u0012Sâã“bc\u0013bbâ£¢b#\"¢CÃ\"ƒCÂåÁaÁ!aAAò@i L\"\u0013‹Ä\u0012‰ÔÛÛwûŽÇOœ*¯¨JIM?þ\"º‚NJ¡+Øžš\u0005´»(Ø¢;Âmî6\u0003ØõÛÃ\u001c\n\u0004Êq\u001dL•¼÷ÞÛgÏžMOÏ\u0014‹\u0003qm54µö\u000el8~\u0002\u0006û\fì1<yDt““$mÙ²mÛ6Dz\b)·n…¡Ø†€\u0010Q%BÍ-d¹™,7mÚ<1±i|bã†\ncëÖm\u0018\u0019Y·víÈÐÐðÀÀPoo?ROOßªUkV®\u0004EVµµw´¬hoim[Þ²¢i)´¡¹¾¡©®¾qqí’E5µ•U‹0`\u000bË+‘JJ\u0017â:ÎË‡íÏÏÉÉËÌÊÆ\u0001§¥e¤¦¦'&&ƒÇñq B\\TTtd$IááQ¡aá!!aÁAÁA²À ‰L\"–H¥\u0012PadÝè‰“§«\u0017-NMË8uú,\\&¦'n\u000blïýO@?‹‚-º\n°n#»Ý÷\u0018\b$\"ˆäRøì³¯^½šÇç‹Ó2sê›[W÷\f\u001f9~æÌùK{÷\u001fÙºm÷ÄÆMãããc\u0004ø?ÁäÇ'&6ÒUd˜Â\t¬¢Å†\n\u001bÖ¯'ixx\u0004<\u001a\u001aZ;88400Ø×\u0007\u0012ô\"­YÓÝÕµª³seggçŠ\u0015m--­Ë[Z–-ƒgÐT_ßP·dImm]MÍâªêêŠÊÊòòŠÒ²2Ø†’’Ò¢¢âüü‚¼œ¼œìœÌŒÌôÔô””Ôää”ÄÄDXý¸¸øèè˜¨¨¨ˆˆH¤°°ðàPy<\u0018\u0012™T\"\u0015‹Å>¾~ý\u0003Ð¼c ZFf6äá«¯®¡\u0013¨ótÓn¤…ÓÀÖÍ [­Ô€]Ÿ\u0001¶z\u0006ØêÛh0\n´ö»\b‚®+0³\u0004 a\u0003Ý!sî_ýÕÓO?›[ \u0010ˆ“Ò2\u00167,]¹zàè‰s?ùôÖí{\u0010èo¢, \u0007˜%‹©BÊ\u0012‚ÑÑÑõë×¯[·ndddxxxíÚµCCàÁ@?ô ·›ÁêÕ«W®\\ÙÑÑÑÞÞ¾bÅŠ\u0016ÂƒeÍÍÍ\n\n\nK–,©««[¼xñ¢E‹ªªª*++\u0017.\\XZZZRRRTTTPP\u0007dçdgfe¥gd¤¦¥¤¤$%%%$€\u0007q±±±àAd$x\u0010\u0011\u0016\u0016\u0016\u0012\u0012\u0012\u001c\u001c,\u0007\u000f‚dA2©L\"•I¥b\t¨à;84|ôØ‰šÅuYÙ¹‡\u000e\u001fýìóÏÑGdŽt\nl71`‹f€­ž\u0001¶ú6vÂÖÍ [}\u001b\nf\u0002µÓƒIº\nÀ®O•°+ß|s\u001d~\u0012C\u0004„\u0011(~æ™gŠKÊ$Ò ø¤ÔÊšúÖ¶5û\u000e\u001eú™?#Z[¶¼}t\u0014—>\u0011ƒiÀØ+2 \u0001–\u0004ð@™\nƒƒƒàA__\u001f|„5\fV­‚$t‚\u0007mmm­­­Ë—/_ºtiSS\u0013¨ \u001eÔÖÖÖÔÔTWWƒ\u0007\u0015\u0015\u0015eeÐƒ’âââÂÂÂüüüÜÜÜœìì¬ÌÌŒôô´THB2$ò€R\u0001<\b\u000f\u000f\u000f\n\n\u0005\u0015ä,\u0015¤RÂ\u0002‰X\noÁÇ×¿¯íÁCÇªjê²ròöî;ðÉ'Ÿ)÷\fÅ´îš­Á4°u\fØ\"\u0006lÑ`ëf€­fÀ\u0016Ý\b¶n\u0016Ìa^àÛo¯“Y&\u0005\u0015¾ýíoÛØ´4\"2&*6¡\f®âÒöÉ­»žxê™òÊÅˆÊ`ì''7Ý”\n\u0014”\n ¥Â4I \u000f¨$@\u000f€®®.H\u0002x ,\tõõõà\u0001•\u0004Ê\u0003*\tÊ<È\u0006\u000f²²222ÒÒ¦KBLL\f$\u0001<€$€\n„ 9˜\u0010\u0018\u0014$\u0001\u0015à(Àm\u0014Š$Þ>\u0001]]=ÛvìYX½8;¯pÇÎÝ\u001fü\tz€˜ËY\"ˆÙÊ\u0015`\u0006è{Fh6Üñ†³aŽTÀé‘x’€¸\nß~û»ßþ¶¯\u00101wXdlIù¢º†Öu£“^yª °L$\u000e‚Ï¿yó–[Pò €u <P–\u0004ð€J\u0002x0›$€\n°\u000eàB\u0012ÊËËA\u0005j\u001a(\u0015rr \bÙ™™™ééé©Œ$(¨ \u001eDGGSI Ö\u00014\b\u0004\u000fdˆ\u001d$ð\u0012 \u0007B!’Ì×Ó´´exýDIEuN^Ñ¦Ém\u001f|ðá]\u001fŸ\u0010s£\u0002ñ\u0015\u0018>\u0012¾3ªðüóÏOnÞŠð=8,*¿¸¢vÉòþ¡\n\u000f?zµº¦Þ×‡ \u0010T`‡ýf \t \u0007€‚\n”\u0007Ó$\u0001<€$P*L“\u0004ê(@\u0015¨—@%\u0001ÖJ\u0002õ\u0012fJ\u0002ã0ÆC\u0012À\u0003X‡\u001b$!(H&\u0003\u0011d2¢\u0007\u0012‘\b<\nE2¿ ~IyUK{WaIeNnÑØøäûïðÿ/\u0015 *zD\u0013\u0019*¼úïW\u000f\u001e<’•'“‡eç—ÖÖ·t®ê;wñá¶öUž^~mmˆ#ÙaŸ\u0001ê\"€\u0004 ¬ƒB\u0012\u0014Þ\"$R\u0001< \u000eãL/Z\u0007H\u0002µ\u000e\u0004ê%PoQa\u001d”%\u0001<PH\u0002u\u0018)\u000f¨$P* ÄO€— ’\b„\u0012¾@â\u0017 HJÍ,-_”[P\n*ŒŽmb©€þ¸~sCp;DA\u001be°¥7Ã÷6Pàö[*cnTÀ\u0007\u0010\n\\‡Ã@$\u0002Þó[ÿ}ëÌ™³9¹\u0005Ò Ðœü’†æ\u0015-m]'Ï\\\u001c\u0018\\çãË]ÞÒ¶yóf\f9ÀŽ?\u0013DÒU,\u0015T $ÀRÙ[\u0004\u000f¨·\b\u001eP*Ìô\u0012¨$€\n\nI ƒB\u0012`\u001dfz\t\nIPö\u0012Xë\u0010HœE@\"$ˆ…B‘P(æ\t%þ\\QxT|fN!N3;·pýú±÷Þ{Ÿô8Ó\u000fL÷Ü f8¦ƒ­›\u0002[ª\u0004¶b\nlé`ën\u0006¶Å\u0014ØÒ©rve\n´\u0010 «7¡‚rõ4€ü×\u0010Bà2`žX@³O?ùôÂ…óÅÅ%!¡\u0011Y9\u0005K—µ5-]±ÿÐ‰ÍÛörø²†æ–“[6ŒÂ\u0010\u0010\u0012l\u001cŸ\u0018\u001f\u001d›`X\u0001\u001e \u0010‰a\u0003<ÆµÃÄY$ \u0015À\u0003eI€i ’@y ,\tˆ\u001d¨— ˆ!gJ\u0002x ,\tàB\u0012\u0014\u0003\u0013@\u0012I T@\u0010Hì *\bA\b®@ìÇ\u0015FÆ&§e\u0017¦ç\u0014fç\u0017\u000f\n¯{ûmrŸšLºÍ\nìú\f°Õß·ù-À6\u0002[z3°-¦ÚÌI\u0015ÈýÈëß|{ýk°™c`ŒÅÙ³g\u0017.,OLLÎÌÊmjnilnÝ¶sÿÃ§EÒ°Šêº±[ÆÆ7‚\nŒ\u001aŒÓDT‚¡Â†\ncŒu\u0018¡T€$ \u0004@Y\u0012À\u0003J\u0005j\u001a\u0014’@cÈ™ƒb.á¦’@\u0003\u0007eI˜šK`­\u0003ÜEJ\u0005\u0010A ä\tDø\u0013\u0007\bÄ\u0011±É‰i¹©YùyE¥ýk×¾ùß7ÙŽdTò¦`ºú¶†p6üÀÍo\nåÃ›3\u0015(\tÈÊ×__»F¦Û.\\¸ÐÔÔœžž™”œV·¤©®aùúñ­\u0007œ•…D§g\u0015¬\u001bÛ8±i3´€Æ\u0011D\u0012F\u0015\u0001$x0ÊÄÃ#ÃCŒ¿H\u001cFx\td\u001a\t\u001ch \to\u0011€—@MÃ´¹\u0004j\u001a¦y\tàÁM½„™’ *(K\u0002¡\u0002˜€È\u0001ÖA  T\u0010\u0012*p„Ò °è°èÄäŒÜÂÒŠÞÁÁÿ¼ñ:íHÚ/¿tÌ\nÄK`¨ .\u0011A`$\u0001]qåÊ•¾¾\u0001P!*:®²jñ’Æ–Õ}ÃÛv\u001d\n‰Œ\u000f\t\u001d\u0018^\u000f\u001b1“\nŒ] \u000fèt\u0002<…Á!B\u0003\u0002\u001a8(K\u0002ô€Z\u0007E I%Æ \u0002x „Û™K ƒòô¢‚\u0007°\u000e\u0003¨‚\u0018^‚@ \u0012ñ…\"\u0001Ø\b)W\u0018È—\u0004Ç§d\u0016/¬êéïýõ×(\u0015n¡\n¿ |w;Š-˜\u001d„\nÌsŸhÌ0\u0001\u0011\u0004Éÿùš˜Ø˜\u001b\u0011\u0011SRZÑ¼¼£qyÇªžáÀX®xMßà¦Í[©PP\u0001<PP‰!a\u001d\u0006†\u0006ûÁ\u0003ê(($\u0001^\u0002\n ©Ã8-€T\u000e\u001c(\u0015¦™†Ù\u0002\u0007…uP\u000e\u001c\u0014’ \"\u0010‹\u0005bpA$\u0012€\n|‘ˆ'”úø\u000b‘â\u0012ÓËÊ«Öôô¼þÆH¿¡CØÙøÛ\u0002éëÙ{›ÖR°EsÇm~ÃI¶ì– \u0005¦rð\u001d‰xååìÞ½'77?4,2¯ ´©¥£¸¼69½È—#sõð[¹ºwróV¨\u0002á\u0001Ø0:F©À¸\bà\u0001\u001d†Ö\u000e\n\f\u000eÀZ\u0007:‘ \u0004˜\u0006\u001aC*{‹tz\u0011\u000e#¬\u0003LÃLI <¸iàp\u000bI T\u0010³T€Ï(\u0010ð\u0005B\bƒX(\u000e\u0004\u000f<¼¹±\tie\u000b+W®êú\u000f£\nè\u0006\u0005\u0015˜^$ «3ÁVß\u001e\u0015 ¶tŽ`7fÀ\u0016Ý\u0006î€\n„\u0004è\u0001ðàëë_a«\u000fÞ{ÿØ±ã99y BfvAmcKv~¹\u0017GæàâçèâÕÞµ†R\u0001~\"è0FÂ‰éT\u0018\u001a‚uèë'4 s\t7S\u0002à((\u0007”\u00074j \u0001ä-¼ÅisJ\nI ^‚‚\u0007Ä:0–\u0001î¢\bR@¨ _PA ’zûó\\Ü}¢â’J\u0017V¶u´¿öÚ¿I§ÝŒ\n -™\t¶z\nlé\u0014ØR%°\u0015s\u0001»%\u0003¶è6ðý¾\u0002»Ë)€\nÔ4€\nD\u0015°~ýëÓ§Îäç\u0017FÇ$¤eä.ª[–SPéî+²sõµsroë\\ý\u001d\u0015&&F×o \u001b\u0018\u001eÀE \u000fÖ1Ó‹„Þþ¾\u001e\u0005\u0015¨$P*P= ±\u00035\nIP\u000e •%\u0001T˜)\t\no\u0011<¸…$€\n €€/$\u0004€m`T\u0001v‚'”xx\u0007Ø;¹GÄ$”.¬XÞÚúïWÿEz\u0004]t3* ´p\u001aØ:%°\u0015S`K§À–Þ)Ø½0`‹fÁœ©À”áÔ¯“Ëá›kß0~Ÿ9}¦¢¢*)9=)%³bQc^Q¥g€ÔÖÙÇÊÖyÙŠ\u000eø\n”\n°\u0011ëGÖ\nSwžèÃ)ˆ!á#ôôõvÓ¹„™’@y \u0004…i ^\u0002f¾©$({\t\u0004\u0005\u0015\u00141¤²—ÀJ\u0002\u0005ñ\u0017‰*0ú€8\u0002kR\u000fŸ ;G·ÈØÄ…\u0015UMK—þó_¯àÜoj  Z2\u0013l5\u0003¶H\tl\u0005\u0003¶è…\u001fD\u0005Â\u0006Æ‹|ðÁKÍÍËÒÒ²bãSJ*jJÊkýør+;\u000fK\u001b§Eu\ncäÙ¤M„\tcc\u001bÖ­WP>¤Ä\u0004ýŒ$°s\t3%Ayzñ¦’ \u001eÌô\u0012Àƒ™^\u0002•„›Z‡)I \u0004\u0010A\u0015@\u0003J\u0005\u0012E0T°up\u000b‹Œ…*Ô74¼òÊË¤Cþÿ¦\u0002\u0001¹39E…§žúMooZzVDT|QYueM3O\u0014jaã\u0006UÈÈÎ\u001fY?:±q’L*\u0011\u0007aâÎÓÈà ½\t\tG¡»·g‚\nà\u0001u\u0018©‹ \u001eP*(\u0002\u0007*\tÔaT˜†™^‚b.A!\tŠ¹\u0004H\u0002Õ\u0003€ò  \u000f\u0004,ˆ`2Ä@0¶Bêå\u001d`gï\u0012\u001c\u0012Q\\²°nÉ’—_~‘tÈR]Ÿ\u0001¶úgH…Ù@©@–ß~û·¿ý}ãÄ¦ÔÔŒÐÈÜ‚²ÅK–‰\u0002#,m]­l‚B\"\u0006\u0006×nÜDîDé„uëa#(\u0015\u0018I 7Ÿ\u00109¬éé^McH\u001a8(¬ƒbZiš$Ði%å ræœ’²— \u001c8PIP\u000e ¡\u0007ßI\u0002¹ñ@\f\u0004h ð\u0015„\"\u0019¥‚T\u0016\\T\\V»dÉK\f\u0015˜™×¹\nÛÿ~˜o\u0007s¦\u00023ÛxÃ™àÄÞ|ó¿;wî†\b\f\nMIË©©[\u001a\u0018\u0012kaëlaíàåÇYÓÓ·ir\u000b¨@&\u0013¦¨ o‘>ÂÊÜ|‚»\bI \n¾ç¹\u0004eI ^‚\"†T–\u0004PaZà ì%Ð¹\u0004Pòà¦T w\u001e`#¦T¡\u0002U\u0005gp¢¨¸\u0014Txñ¥¿ß\u0019\u0015~ž¸;Tøâ‹/öí;š–)\u000f\u000eOÌ(«¬\u000b\n‰…*€\nvN®«Vwƒ\nì\fãÈºuÃÔ:À4@\u0012\b\u0015HÜ@$\u00014 \u000e#5\nÊ’@ç\u0012\u0014\u000e#•\u0004Åô\"U…is\t·–\u0004ê0N£\u0002x0\u000b\u0015\u0004\u0010\bÄ“Þ>\u0001ö\u000e.\u0001\u001c~~A~Míâ—^f¨€\u001eø¿A\u0005r2·\n\f;¥‚‚\nlÅ·ß\u001e8p(3+7<\"&&>¥¸lQHx¼½»¥£…C×ªîM›6ƒ\n$†\\;<BîEÃ:\f1< 7Ÿ\b\u0013Ö¬bBHâ0RÓ ,\tŠ¹„i’ ˜K \u0001¤rà \u0004å\u0018RY\u0012@\u0005 ^\u0002Àð€¥ ã+\"aú\n0\u0012\\\u0001ñ\u0016\b\u0015\u001c\u001c]½½ýñAðY_zéoôÜ•ºáv¡Üu\u0014ÓúóÇ ý\b\u0005ØÒ)Ì\n v@“\u0012ÈÚ±£ÇŠKJ£¢ã\"\"ã\nŠÊcâÒí\u001c<-¬\u001dÍ¬lWvuÃWØ@ý\u0004H\u0002\u0004}zq¨¯Üq LXÓE\u001fKPL/*$afà ,\tÔa\u0004\u000f¦y\t\n\u001e(\u0007\u000e\n/Æ”\nÔ[œ\u001a{\b\u0001%\u0004-Ç\b*ðødžAìåí\u000f\u0003ááé›ž–YQQùâß\u0019_ébšùEã‡S\u0001Y\u001aO^ÄhA\u0013BÃ¢23\u000b2Ò\u000b|ÍìŒÌ,—·´oZ·aý0œ„uëÈ#\td.\u0001Ã óE—\u001eÄ\np\u0016\u00117($A1—@gš©$(æ\u0012¦M/RÓ€+•š\u0006å9¥›Î%(bHÊƒ)ë Á`\u000b`\u0014„$Ï<´B#\b&˜ ID\"O/_[;'\u000f/¿Ô”¬…\u000b«^|º„\u000b$ó\u000bÇ]£Âoû\u001bxýÑÑ1Á!á\u0019\u0019ùyù\u0015î\u001e\\\u0003c+C\u0013ËÊªÅ\u001bFÇA…!F\u0010n¤\u0002y4\u0001qÃªU\u001dP\u00048Œ\noq¦$€\u0007T\u0012¨iP–\u0004ð ’ <§¤0\nT\u0012(\u000f”%\u0001T $  \u000f,M©\u0002•\u0004–\t\n*xy3TðôKNÎ(-®ø;K\u0005\u0018Ëë7tÉ/\u0013wH\u0005%°TøÇ?^‚/\u0018\u0015\u0015#•É““³ò‹ª<}…†&ÖFfV\tIiƒCÃëG7(¨@ŸK€u`¾ó\u0004I€·\b\u001e@\u0011¾\u000b §IÂl^\u0002\u0002\u0007j\u001a”ï8L“\u0004˜\u0006€J‚‚\u0007\no‘á\u0001±\u0005\n\u0019`ó7ª\u0002ã+øÁ@¸{ú%%¥—\u0014•ÿío\f\u0015H\u0010e ù_2æ\u001eA0ó\tJøú\u001brM|ûñÇ\u001fŽEEÇÊ\u0002Câ\u0012Ró\n+|üEÆf¶ÆæÖ\\¾xõšž\nã£k\u0019?\u0001T 7£a\u001dº»¿£\u0002D…\u0006\u000e”\u0007Ê’@oFßÔK€uP\u0004Ê’ l\u001a\u0014Q\u0003¥\u0002åÁ”·HHp\u0013*ñ§kd±\u001b \u0002ñ\u0015ÜÜ}\u0012\u0012R‹Š\u0016R* \u000bÈ4Ó\tf¤\bØõ;\u0005»—YösçSLS T —ÅÄÆ‰˜¸øÐðè¨ØÄœü2ß ±¡‰•±™•“³ûÊ®Õ£ãcP\u0005è\u0001c\u001aèƒ¬}kÖÐû\b\u001cÚè\u0013*°\u000e3%\u0001z@%A™\u0007\nI˜æ%(¨0Í4€\u0007°\u000e\nIP¦Â4áç\u000b˜gVÀ\u0003†\u0019„.\u0012o_Ž­“‹«w<¨P¼ð\u0005Æ@0ðáÙ•\u001f@\u0005r·šý÷5óàÂ¶íÛ’RRÃ£bC#bÓ³\u000b¹B9¨`hjaim×¹rÕèØ\u0018y:¥Ÿ<ŸBï@®YÓ½j\u0015½\u001f½’q\u0012H \të@%Aù&$x0›$Ì\f\u001c\u0014s\tà‚\nT\u0012”£†›ñ€\\ÿ\f\u0013\u00101€\nD\u000b¦€¶2Ÿ)*$$2T \u0006‚°tÄ/\u001dwN\u0005:½@A©püÄñœ¼¼Ðˆ¨Ðˆ˜Ä´œÀÐ\u0018s+\u0007=#Sc\u0013‹¶ö•\u001bÆF)\u0015èó)\f\u0015ØGÖ:;;¦œ\u0004\u00128€\u0007\nI˜\u0019@\u0002Ê^\u0002µ\u000eT\u0012”½Ej\u001ah \t\u0012À.PIP¦\u0002F˜\bÀ”s@\u001eX\"÷ Hô(àó‰*Ð\n¢\u000ed¶\u0011T°¶qtvñŒ‹O\u0006\u0015þJÝFrúP…_<\u001bî\u000e\u0015Ð\u0011è“Ç\u001elÑâ\u001ayh¸<,26)\u001dÉÞÉ\u0003Á¤¾ICcó0ÂÈáµ\n\u001eP*Ð;O \u0002\u001b¨ÃHy ð\u0012 \tàÂ[„$P\u001eL»ó\u0004(Ï-RIP¦\u0002xp\u000b*àª‡FÐ\u0004Uàóà)’5¦ž‰\u001fn¤BAa)U\u0005¢ŠÄ@¾ Ì˜\u0002í\u0017€]GKæÖ\u001d-¡Uw fO,Ø¢;\u0002»\u000b\u0006´dÖ\b‚V\u0003ìúL †©$ÿ\u0019*<÷üs-+Z\u0003CB%A!‘q\b¸òÜ<ýM-m\fŒÌò\u000bŠú\u0007\u0007(\u0015úØ ò»§XA…\u0015+\u0010@‚\u0006ÄK˜9§D\u0003\u0007j\u001a \t75\nð\u0012\u0014.\u0002\u001a¨iPPº\b\n*‘§Æ€L\"± y\"\u0004äÖ´\u0018î\"VÅb4&ß‘¢\u0006ÂÙÅ+>!%¿ ä/%³\f\u0005fï¥©žœ–aj~^ø\u001e*°+³ƒ6£\u0006âíwßîìZ)“‡\beò°èø¤´\u001cO\u001f®‰…µ‰™UpHøšž50\u0010T\u0015À\u0003†\n«;;ÉœR{;4\u0001D \n¾ó\u0012”\u0003Hê0Ò \u0012^Â´;O ÂLoQ1·Hy  ‚ÂK T  $\u0010‘g\u001aÅ”\t\"¡\u0018‰Ì1Ò9\u0006‘D$–ùúqíì]\\\\½ \n¹yÅÏÿ…P\u0001}Ä¨Â¬}E«ÈsÁ\fèê-ÚÿT¸Á@°e\fØ¢\u0019G¬\\À¶ T \nyýëëkzº¥A\"™<8<:.1ÍÓ‡cnegfníæîÙ±r%T<³ÖÛKnA’[\u000ek \b$lhƒ› E \nf½\u0019\në \b\u001c\u0014’0“\n\n/\u0001’pÓ¨ašÃH¤€\u0019ü©ÿdÂ‘G\\\u0005è‚˜,\u0019ë€<—'\fà\b\\Ý¼Ý=|á6æ\u0017”R*0ý@ÂéÙpíÚµ/¿ü’í)¦û”9¡€¢ö§Â÷û\nlC\u0006PBæ›Ql•\u0002P\u0005*\f#ëÖ\u0005ÊåbIP \u001c‘D¢—/×ÒÖ\u0001T°´²A°¸vd\u0018b ë@nA\u0012ë°ª½|\n\u0012q\u0003œE&~¼ùÍhê0RoQ1½8m.\u0001ŽÂl’0ÍEPH\u0002\u0006\u001fb@m\u0002FI ‚˜Ç\u0013ñ¸B\u0010‚Ç\u0017\"q¸ü€ ._(Á)EÅ$„„F¥gäæå\u0017?ûÜ_Ø^¡Vb\u0006˜ž!ß\u0018 \u001baK\u0019r0d¸a+Òw\tì\u001eg€­ž\u0001Z;\u0007·‘ì‹PùžÜ \u000f®3O?ïÞ½;\"*\u001aZ*\t\f\t\tõçŠl\u001cœÍ-lLLÍÛ:Ú\u0007×\u000e\u0007Œ\u001e\u0010tvvµµ‘GÖ\u00107ÀYd¦”Èw\u001c¦I\u0002x@\u001dÆÙ\u0002H`Zà ,\tÔ4€\u00073%a\u0001þ‹¹\\>\u0006^(€Eð¸\">WL–\u0018|i`XxdBBRNN^aÉÂ´ì¼˜øäˆÈ¸Ô´¬Ü¼¢çŸ\u0001§Œ±Æé£\u000fÐ\u000f¤G§@{†‚–|öÙgçÏŸ?vìØ»ï¾‹BJ\u0005ZK3?-æ\u001aA€Û„\n3nÐã¼ˆ*\\¸p!##K$–ˆ¥ò y¤H\u001alïìfieglb¶tù2ø\n\b\u001c¨·\b´·Ó·kA\u0012à&42q\u0003ë%€\u0007\nIPL3S\u001e(\u0007\u000e\nI ÓÌ\n‡‘ºŠŠÛ\nÔE LPè\u0001\u0003¢\u0004Ðª\u0007døy`J`°<<1!%/¿ #3;1)%¯ °¼zQQi9¨\u0010Ÿ˜\u001a\u001b—œ’š™‘™÷ü_\b\u0015˜Ó'ß\u0014b27 …„\u0002ß~ûá‡\u001f>ùä“ããã8Ù­[·~úé§´–6û™€¸löö@y0\nŒ¯@ìåï~÷»’Ò…ä\u000b§Ä_ˆ”‡F9ºxB\u0015ŒŒL\u0016×-\u0019\u0018\u001c¤’À\u0004°\u000e­­+–\u0013ÀM q\u0003û²\u0004Åœ\u0012x Ó@©@½EeI@ ©\b\u001c¦I‚2\u000f \u0007\u0010\u0003P\u0001¡ Ã\u0003\"\u0007L\"V€Ï\u0003=Ð(8\"<&#=§¤¨¼¨°¬¨xaeUMaQifV^V^AFn~zv\u001eRJZvZzvzFNzFösÏÿ•\u0019hŒ(¡Â40UßbÔ_xá…«W¯âÀ@ëË—/¿õÖ[(g;îç„»sg\u0012d`¨ðÍÛo¿½¤¾ÞÏŸ#‚,\u0004‡…„E;¸xšYÚè\u001b™deå®fn7@\u0014:;Ú;ÚÛÚÛV¬himYFb\u0007f.¡¾nI]MíâE‹kª\u0017±’@]\u0004 Ö\u0001’ = oYËÈLKMKNLHJL€³\u0018\u0013\u0013\nQ T€$„††…„†ÉƒC\u0002ƒää½‹R\u0019/ ïÑ\u0011Iüy<\u000e‡‡áçrá\u0015Jà\tŠDRYHBBja!8WYVVUVV]RZYX´0/¿$'¯8\u0017Ëü’ŒìüÌœ‚Œ¬¼4B\u0002Ð± +3çy†\nð\u0004èeÀ|‰ð;\u0012|ôÑGøÃ\u001f&\u0019<óÌ3„¿üå/_}EÌ(ÛNI\u0015P¨ÈüT¸ƒ)&\u001c´2©\t\tÈ\u0017\"\u0018* Ð@\u0004âAÁÁ¡Q\u000e®žfÖv†¦\u0016² à\u0015m\u001d==Ý]+;:;à9¬@Ü@üÅ¥Ë–6“¹\u0004p¨–¡BUÍ¢ªjòXeÓ@‘—“Kx’š’”œ’Œ°!\u000eT€“ Ë@'\u0012 †\u0007¡øt,¥² 0€/€yGÄÄWÔÔö¯\u001dé\u001fZWT\\ž˜–S˜—_Š°\u0010á †Ÿy·{1\n3³ò±ÌÉ+É-(ËÈ)NËÌKNËNÏÌKOÏÍÊÎGÊ \u001b²rŸþyô #\tp\u0004Ñ\u0003Œ™¼v\n$xöÙgOž<ÙÑÑ\u0001mÛ²eË\u0007\u001f|€ ‚ö8š)ÜF€tÙÏ\u0003w‡\nè\u0001ê+ p\f\u0019\u0005\u0016b\u0018ä¡‘Žn^\u00166ö¦–6Î®îK—µ ˜dnA¶\"1³J\b\u001cn|>\u0005<Pšf\u0006\u0015hÔ Pë a€€”’\u0002/!aê^t\fq\u0011Â#BÃÂCÃ\"‚CÂ\u0002ƒBÂÂ£’S2–Ô7­]?¶nlSå¢%aQq1ñ)Õ‹\u001b\u0016V.Î+(ÍÌ.HMÏINÍJJÍJËÈMIÏÁ¨§gå§fäfàºgÞ\u0002Ÿ˜’…M¢b“\u0012’3RR³à0bŸ™Y9¹¹ùÏ=÷\u001c=eæJ <xï½÷ž~úé‹\u0017/ö÷÷ÓûjçÎ{çwP‹ftàéWIÏýÌ0g\u00031\u0003Ä@ !‚@o`}Ó¦MðØA\u0005Øˆ Ðpgw\u001fÄ“æÖvæ–Ö„\n=,\u0015\u0018I –¡yÆó)Ê\u0001d1\u0003Ê\u0003 Þ\"\\\u0004€\u001aâÉ‹Xa†á'2TˆŒOÌÎÉkj^6<2:6>¹tÙ\nŒ\\T\\bJFvHx\f‚[8(08\",2.\":!($2<*>,*><:\u0001ã\u0014—˜–˜’I˜‘™\u0007B`øA\u00024\u000e\u000e‰ŽILbØ”œž’šžŸ_\bÁ§]€sóÍ7ýë__ºt\t1\u0014½Ï><<\f»ðùçŸ£\u0001:\u001aÃO3\u0014Ìv?/üp*°PœáÑ£GqB\u0016`ž¥Á¡^þ<k{'¨‚…¥MKkÛš5Ýôù\u0014rËá†;O\nµµKjjj«ª\u0016UTÀ:Àl——””\u0015\u0015!†„ÃX@_ÏŒð$5-\u0003Æ!.>‘¦Ø¸„ôŒ¬Ò²…\u001d«6MnßºmWGçêŒÌÜ˜Ø¤”ôìð¨8ŽÐÛçÏ\u0013\u0005ðÄ\u001c¾D(‘‹e!2y8x€ˆ74\".8,&$<.*69:.56!\u001d)*65>)\u0003< ]B#bÁ¡ˆØÈè„¸ø\u0014\u0010‹q\u001b³pH \u0002Fú÷¿æÒ¥\u000b¸ú\u001c9:66Ö†ø¸½ýøñãÛ·o\u00079hç( BPNü\fq\u0007\u0006â& û¢\u0019($4œÃ\t \u0015`¡E\u0012¹½³»™•­•]Cc3Â\u0007Ê\u0003Å§)I¨_¼¸\u000eT¨®®\u0001\u0015\u0014<ÀÅ\u0007\u0012 eeçâZ\u0004\u000fRRÓqé/ª©]½¦wÇÎÝ»vï[ÝÝWPXŠ\u000b\u0017C\u0005\u0012ðøb\u001f¾?WDÞ!‚\u0001<Œ/\nD\u0006\t\u0019°\u0001.¨\u0010\u0014\u0012\u0015\u001c\u0016\u0017\u0016™\u0010\u0019“\u001c\u0011\n\u0001H@\nJŒŠ%F\u0001<@\u0010\u0004Ò€\nQÑ\tÑÑD\u0018\n‹Êòó‹pH½½½8øššE\b†Ç©áŒ°|øá‡á.¼ûî»ï¿ÿ>u\u000bh/Q\u0012`É¾×ìg†»C\u0005\n†\u000fß\"ˆ€¥÷óóƒ… \u0015ÐNnžp\u0017,­l\u0010¦··wâ²aæ\u0012ØoÄ6441’@x°¨º®²¢faYUiIEIqyQQi~~qNnaNnA^~\u0011Æ ¢rÑê5}»vïß³÷@ÿÀ0B¾ˆÈØ¸x\\ÐI<¡\fÃ\u001fÀ%W¿¯?ß7@@Ù€U°\u0001K?ŽpB(ãð¥<aH\u001a*\u0010\u0007‹e¡A!ÑHÁa±¡\u0011ñ \u0001\b\u0011\u001e\u00056\u0010=ÀÁC?$h\u0013\u0019\u001e\u0011\u000bª1SÎ%\u0019\u0019Ùñ\u0010¤Ø¸\u0010¸,0h0u\b·mÛöüƒ†\t ú\u0004\u0003\u000f6(Æ^A‹Ÿ!î² €ìûûû\t„b©L\u001e\u0018\u001cîàâ\u0001*˜™[¢dùòÖ¶¶\u000e2“ÀÜr€i¨¯o¤’°¨zqUemEù¢²R–\nˆîJJ+ŠKÊ+«\u0016·w¬\u001a\u001cZ·juïÂòêØ¸ä¨˜„ø„\u0014yp8‡Kn\npød¤ý8\"®\u0018Ã\u000f\u0012`\u0015Ã<8\u0001\u0006 \u0004\u0019$¸\u000b¾\u0001BP\u0001‰+\b\u0014JB¤A\u0011HÁ\u0007Â\u0006,\u0003C¢CÂ‰] \u000f¤Aa \u0002\u0012¢!\u0018ˆÈ¨¸ÐÈˆ\b„¯\t\bláÅÂÁ…Å[»vèÑG\u001f…\u0012Lë\nEžJ\u0002Í3M~v¸;ª x1\u000fÅš5kD\"¡D\"\u0003\u0015à::¹xØØ:šÀ_°u\\¶¼¥½ceóÒåðìšš\u0010;,­¯o¨­«¯Y\\_]]‹!¯¨¬A¢¿÷RU]W[×ˆª¼¼¢°¨Àp\u0004„Áa‘\u001c8€/ä\n$\u001crÅK¨\u0013@Ä @@óH \u0002\\\u0004?”p„¾LÆÓ‡ƒ\u0012,A‹)®À|\u0004B\u001eÄ2Œwx`0´!>,2I\u001e\u0016\u0017\u0014\u001a\u0005Ó Ç\u0002n&u/ÄÒ`©4D\u0016HR^~!8½dI=<ƒ¡¡ýû÷üë_ÿúâ‹/pîè\nÚ\t´g\u0014\f˜f\u0014h!\u0015\t¦9ëF0•?\n~\u0010\u0015è9(€\u0012œ\f2\u001b7n„rŠD\u0012™,8P\u001eîæîmïàbjfena³¼eÅŠ¶ŽeË[\u0011M€\u0007Í0\nµµ BCÙÂªÜ¼¢Ì¬<X\u0004,!ÅAò0˜˜À Ðà\b‘4ˆ+”ðÅ2žH\u001aÀ\u0017ùó„¾\u001cA _JM H€¡¥y,A\u0005\\ýÈxcø}8~þ|,Ý<ýœÝ¼ir÷ògt\u0002-e0\u0013`\u0003’4(R\u001e\u001a'“GóDÁ\u001cÆ· á\u0006¼\nd¤¡òà\b\u001c\f8Z_ß´¢\u0015$X;11qõê•Ï?ÿT¹\u0007 \f¼bUQE33*E-Íÿ@Ð]Í\u0004[=\u000bîšÛ¨¼<sæ\f\"=\u0011ñ\u001bƒ¤²\u0010\u000eWäàèjai\u000b*0¿+ÔA^ïÈüØ\u0017d +;ŸºåÑ1\t¡aQry˜H\u001c\b\u0012„…EÉ‚BD29’@\u0012\b% \u0015@\u0002F\u0012D\f\u001bXs€k\u001dãŠ¥7ÄßŸó\u000f\u0010pÁ\u0006ï O/w\u000f_'g\u000f{\u0007Wd¸<qpH$¤\u001e´p÷\u000eðñçyûÁ¥\u0010A\u0015@\b$0ƒ\u000bÛ!–óÅAà\u0013ô 2&\u0011N\u0003ÌDéB2\u000b\tç\u0011§Ð×78¹ió†\n\u001b¶lÙòë_?ñÆ\u001bÿŸ\bUPî\u0004\nä)9”AE”B¹1€Õi`+\u0018°ES`Ko\u001bìf³`ÎT`ÏàF)£%ôÃ°üÛßþ–——'\u0010\b¤R9¨ \u0010J]\\É\b3së¨èøêEu\u0005…e\u0018þ”ÔÌðÈX4Ê‚É„ ,\u0018\f@‚\u0002C\fPÎ\u0015ˆ1ðP\u0002 bàÏ\u0015úq!\u0006|,\u0019\u001eˆ¼|yÔ\u0003 ÊK\u001f$ðóçyzù¹¹û€\u0001ÎÎ\u001e`ƒ@(ƒÇ×ºbåÁCÇŸ{þïÿü×ë•ÕuN®^®\u001e>îžþî^\u0001T\u001bø\"9<J_ŽÈ—+æ‰‚BÂ¢Á\u0003 )5«}ewgW\u000f¨ÐØÔ²atã–­;†‡×Á×©®®^´¨\u001a±pÿÞ½{¯\\¹òïÿ[™\u0016\u00144OzŠ\u0001í+\n¬Ò\fíCÚ@\u0001Z¥ [:\u0005¶t\u0006f«¥å³a®TÀ±Âæ)\u001f1>à»O¢'‰Ž@\u0007ñx\\P\u0019Ô`\u000fO_8\n\u0018ãÅµ\nIÉé²À`\\ú\u0018~‘8H\"\u0005\u0003Â±„)¡1\u001eœ|\b2Õg®8ÿ\u0018u\u001a\u0005°\u0003Ïh L \u0011\u0003_.\u0018àãËõòö\u0007á`Œ\u001cÜœœÝ\u0003üù¡¹9…ëFÆ®^yê…¿¾ôÔož£Rß°ô‹/¿Þ»ï…¥³‹'”Ã\u000f††\u0007¿RèåËG\u0002!àB\"¶ŒŽK\u000e\u000e‹†Ã¸¨¶±kMuMýÊ®ž‰[†GFW­îFà“Ÿ_€°\u0019áÃ¢Eˆ~ËÀ~ ÑS{{ûöíÛ¯^½\nZ|ðÁ\u0007Ÿ}ö\u0019é¦©.¢K\u0005(\u0003 E\u0003\u0005h\t\u0005[4\u000bØFS`Kçˆ»C\u0005œ\b=Gê\u001c!×Úº\\ à\u0007\u0006\u0005cÔa_A\u0002\\©à\u0004ÜoX\u0001±$\bW?<€À ,#!  ‚D\u0016ÂºiÒ`.B>”Î\u0004€\u0001à\u0001Ø@y€D\\B_®‡—¿'c\u00020œÔ\u001dññå`Ï1±‰uKš\u000e\u001d<öÇ?>÷Ê?^}ê×¿\u0018ŸD€ŠO742\u00035ßxóS§Ï[ZÙ™šY›[ÚÚ9º¹zÀð6€\u0001Ùy¥™9ÅÁa1\u0019Ù\u0005HñIé\u0005ÅåK[:††GwîÜßÑ¹\u001a~LAAÑÊ•«*+«êêê\u0010A”——åææfffÒ›¥@FFF~~>øÑÑÑ±uëÖÇ\u001e{ì•W^yï½÷>ùä\u0013Å¨+@{Œ\u0012‚éÒï hp; \u0001v}Žø¡TÀy1‰d¦JÈ©\u000e\u000e\u000e\u0004\u0005\u0005Aôå\bÆ\u0018a KŒ:4 ª‹8M,f€(p\u000e‚d¡\"¬\u0006…qE2_ž\u0010KÊ ,1ð\u0018~p\u0002KŒ=|@$ê\u0004¸{x{xú¹ºy\n\t‰iý\u0003Ã\\¾òâ‹ÿüÛ\u000b/?té‘þþÁÜÜü°Ð\boO\u001f\u001f\u001f¿ yˆ³‹\u001bÌÇåG¯ž9{QK[_KKOS[_]K\u001f®ClBJmý²\u0015\u001dÝQ±)ñI™µõËë\u001a–eç—TT×\n\u000eŽmÜÚ±²{``Ý²–Ž%õ°\u000b‹s²sûûÉw¼@…¬¬\fè\u0001™\u0017OOOfžžNŸ·£yˆGIIIKK\u000b\u001cjÄœ\b7Þyç\u001d¨\u0005\u001d9\u0005hïQÐÎœ\u0013Ø½L-½mÌÙW }ñ)JŸ„\fÉ£„\u001e?s\u0018ßB!cbbÈO5Ê‚á+xû\u0004€\naáÑòàHP\u0001f\u0018l \u0015À\u0003¢\u0007RØ\u000b¹P„X_Æ\u0017Ë±ôõ\u0017p\u00052\u001a\u0013‚\u0001\u0001ÌT\u0001ñ\u0006\u0018s \u001eÀâ¸{øxxø¸¹{9:¹Ö74ÿëß¯¿ôò¿ŽŸ8³¢µ39)]\"\u000eòp÷\u0011‹\u0002££â½<|-Ìm54uï@ÅÒÚ~ttS{çª\u0005êšf\u0016ÖÎî^áÑñp\u00056mÙY\\V%“G%¥æôôt÷\f¯ßøü__|ü‰§×njj^\u0011\u0017›\u001c\u0011\u0011W·¤¹¨xa\\\\\"bŸÑÑÑ…ee9Ù™%%EÅÅÅ\u0004Y` X\fg9\u0010~oDD\u0014ó\u0013†iô)›¤¤¤dæËœY\u0019Yåå\u0015 ÅæÍ›Ÿ¸úÄ?ÿùÏwßy÷³OÙ\u0018„‚ô#¹º”/¹ï!\u0007»åÍÀ¶ø>Ì™\n7Å´ƒÆÇƒûÙÙÙ\u0012):%\u0018¢\në \u0014\u0005†„DËdáAA„\n\u0001P\u0001\t’À\u0017È\u0004‚ \u001eOÆáJùB9Ÿ\u0017èç'äñ\u0002\u00038b_?\u001e<A,á\n€\u0004HŒ\u0018ÀÝóuuõôòôqsó°·w¼ôÐ#×¿þvayµ ßÙÅCNn\u001f%øx\u0007˜šX©©êh¨ë©«é¨©ëÌWÑÐÒ3Dô\u0011\u0012\u0011-”\u0005Á^U/Yrìô¹U=\u0003\tÉ\u0019i\u0019y\u0019\u0019\u0005]+û\u001b\u001bÚBCc¶ïØÿÙg_<üðÕ¬¬¢¸ØÔºÚæªÊZ\u0010«¹©¥¢¼:66!5%­®fñâšEE…\u0005¸ôãâ\u0013a\nýü9ðZ@PO/ßè˜¸ŒŒì¼¼üìÌ¬ôÔ´Ü¬œ¢¼‚òâ…YéY±Ñ1)IÉ(//[Ø¾¢m×ŽÏüöwð-Þ}û/?'ó\u0013ßˆîwsÕ( LW§nAÁ\u0016Ý6æþèÊÍ (§‡ˆÕ×^{\n\u000e”\u0018\u0006‚<:\u0010Êå‰0ö\u0012IpHpŒHDÌ\u0004å\u0001/A€ÇçK9\u001c1\u0012ÆžÏ'\fàr¥\u0001\u0001b\u001f_>™\u001dòçÓ°\u0010l@\\ s £@ì‚«‡‡‡—““‹­­ý9æ·`+«jx|\u0011¨ o`¢­e€á×P××Õ1ÖÖ2RSÕVQÕÒÔÒÓ34qõð®YÒ06¹eã¶m}k‡³\nŠ£\u0013’—µv®\u001f,/¯MJÌ²±tµ·uÏÎ)îèìˆL´¶qÉÌ*ÌHÏ\u000b\f\n‡*Ä'¤òxâ°¸¸„ÁÁÁÚÚZj\u0005BÉ\u000f2G@\u0002câ\u0012á\tEDF'§¤-^\\·jÕ*\f9RiQQS}}MÅ¢èð(\u0018êÊ*ð ?7/-%559%7;gQUõšU«\u000f\u001d8øç?þé?¯¾ö\u0001ó+4\nP6(zø\u0016l`ssÄ¬T`ëo\u000fŠö8> «8îÖÖV¹<48„\u0004‡B‘\fTÊB!\t2)1\nLì ÇEÌåI0Þ\u0001\u001c!F\u001aKh \u00122` å\u0001H \u0006àRƒ•{èêæ‰H\u0001ãíâêîîîioç`ïà´yË¶¯¿*T\u001a\u0018\u001aë\u001b\u0018Ã\u0016 ©kè\u0018è›\u001a\u0019šëë™hiêkjécC\fUbRê¢Åu£\u0013›:W¯ÉÈÉ­¬©kï\\½¤~iQqEXXœ­«‰‘±‘µš†Á\u0003*Úú†\u0016–ÖNVv®p3x‚@.¹‹!%wß#£‘Ê+«JË\u0017&&'ñx<;{;33\u000b//ŸŒŒ\\„Ê9y\u0005EÅ¥mmíë×¯¯ªª¬ªªXR·xÕÊÎª…å\u0015e\u000b·Lnîëë«[\\Ûº¼\u0005\f \u0015²22‹\u000b‹ \u001e‰ñ\tÈ454ö÷ôž=sæÅ\u0017_|ã7èÍn@q‹®Þ\u0014t,\u0014`Kg\u001fSZ;« Õ3ÁVß\f´\u0016$ -‡‡‡cã\u0012Ð_ \u0002/Fp\u000f6\bEp\u001e‰Ÿ\b\u001e ˜ÄÀ`Ô\t\u000f|\u0010\n\u0006À\u0015ÀØC*¨E@‚O \u0012`\t\u0019À@\"P\u0004-` \u001c\u001d]A\u0005OOo°ÁÜÂªyéò÷?ø¨¶®\u001eŽ¡™¹5Ø £k\b6¨©iëè\u0018êé\u0019ÛÙ9ÃNÑ;\u001a¥¥åUU‹òó\u000b+«ª«jj—.mMIÉ,,,+)©„b\n†\u0006VªªzóækÝ?OãþûÕïû•ê}¿RÑÔ6²±wC áÏ\u0015#ÈŒŽ‡C’‰”W\\²c×®Å‹\u0017'Ä'ÄÆÆÃ_D\u0004[VVU½hq~AQoooCCÃÒ¥Mk×\u000e®Y³ª¸¨03-­¿¯\u0017ŽÂÄøxÏšî¾~\b\u0006„¡¹±©«semÍb¨EA^>\b \u001bûÄæCCCçÏŸÿÏþC;\u0019ø^6Ü\u0001îüv\u0014\u0019ü)0ZÀÆHŠ£Ü³g\u000fÜ¥ðð\bXnŒ:.nØ\u0005¾@\n§ºŠà\u0001Ô‚'\u0010C\u001bü|yÞÞ\u001c\u0004\bð\u0006@\u0005ê\u0016€\u0010\f\t|á\u0019€\u0010`€“³;Ê}|ü\u001d\u001d­¬mMÍuõ\f \u0004­+Ú÷\u001f8\u0004\u0005Â*’ž¾!âFs\u000b\u001b,ml\u001dñAé\u001995‹—`xŠK0äeÙÙ¹))èÿô¼ÜÂ‚ü’ªŠšêªÚü¼R‘Pnffgllm``¡­m¬«kª¥e¤ª®7oÖ}÷-øÕ<ûîS] ªcmçâé\u000b£'\nŒIËÊí\u001fX[³¸\u0016ã×Xß¸zÕš¾Þ¡þ¾µ\u001d\u001d]••Õ………ð(—/_ºreGvvfiiñ¶­›÷ìÙÙÐØØÙÙ940ˆƒÀØ®ß°g×îÁþªŠJ°\u0001j\f½\u001b\u000b;\u000bžÁ\f!ZB(Âuº¼‹¸;T˜¶J…á‘G\u001eA´\u001d\u001c\u001c\u001c\u0012\u001a&\u0010JàîaHà0B\u001e\u0010U‚\u0010Xr¸B Ž‚\u0010Tðñæz3±\"‘\u0004Æ=ôòòçp\u0004\u001e\u001e¾vöN^Þ~Þ„\u0001®È›™Yêêê›˜š\u0007‡„WU×ÀI\u0007\u0015Db©±‰™µ“3Ú8:9¹b\u0013ø*\tÄ\u001c,)¯\\TY½¨¬¼¢tayzfvBB\u0012âÌE5µÍÍË«*\u0017§¦fÚÛ»jh‚A–VÖÎ\u0016–Žfævææ¶FF–:º&:z¦:ú¦ªjz*jz\u000bT´u¿ê¯\u001eP»ïW\u000bî»o¾±±9\u0018ó\n\u000b„Û™›—›ñ+ƒ0äæ\u0012\u001a,\\¸°½½­»{u.êòr&'7nÚ8Ñßß×ØÔ´zõêô´4X‡\u000bçÎ\u000f\u000f­ÅØ/^T\u0003\u0012Ð%ÊÉs·Ì\u001bkéÓ\\\u0005\u0005\u0005—/_¾éôö]ÁÝ‰  ì\u000bK*\tT!^~ùåÚÚ:æ+\t¡\"‘ÄÓÛO(–!z„6ˆÄk$b8ø\u0012N€0À_ ‡ß\u0017bàéïíåïïÇswóvsñòóåº#\\tt†ohllª§g`nn\t\u0007\n\"ßº¢íÙgŸÿ÷«¯75/ƒ±ptr\u0001\t<½|À\t‰Œ<b\u000b‘ÈÊË/©¨,­¨,«¬**[˜˜š–žMä»¾±iyÃ4,\u000bÆÒÖÎÙÚÆÑÒÊÁÚÖÕÑÅÛÁÙËÁÉÃÁÑÍÊÆÑÌÊ\u000eÉÐÔ\u0002úb`l¥\u0007ÏÃÀTWÏ\u0018Nèý÷«¨,ÐøÕ}óï»ï>}]C?\u001f±P\u0016\u001a\u001c‘š’Y\\´\u0010\f+)YØÐÐ811ÑÐ°\u0004ióæÉÑ\nëéƒ\u001a###ð4óóó‡\u0006‡6Ml„\u001e,,-«©^´¤¶\u000eª w²²\u0002Ô%_!\u0007™ ´Düùê«¯¢c\u0015¬XN\u0003\u001d‹¹â®QA\u0001\u001c\u0007\u0005<ÁÁ¸¸¸ÐÐp‘HÊå\n\u0011ëC\u0003à~#\u000fI\u0010K\u0002…B\t—#àq…à·—\u001f'€ïáîíìä†¥«‹\u00074ÀÚÚÎÀÐHGGÏÚÚ&66®¹yéÀÀàoû\fý\bøPË–µxxxºººóø‚€ .—Ç\u000f\n’GF‘çòò\u000br\u000b\nr\n\u000bp}¦ ª+(h\\Ö²º·lrsWOorz¦›‡—¯?W$\tòç\b]Ý}Ì­\u001dM,\u001cœÜ|ùb9W(óôçúò„ž\u0001<Wo?'\u000fo'\u000f\u001f\u00077/+{gK\u001b\u0007}C3--=c#3¨‚®ŽšŠú¼\u0007@ˆûA\u000b-\n=g'\u000f‘P\u0016\u0012\u001c‘”˜¶°¬²½½\u0003\u0018\u001a\u001al^º¬¶®®±\u0011~Ã0\u0014£¨¨\bÂ¹wÏÞ¼œÜÒâ\u0012*\u0006à\u0001ä¡²¼¢\u0012žf5yÜ\u0017€$TWW?öØc8_œ5ídH/xpS*Ü\u0019î\u000e\u0015˜qù\u000eŠ’ãÇfd¤‡††\u0005\u0005…ˆ0ú’`¡@\u001aàÏÇE/\u0011Ë¤R\u0019GÆO(\u0014A\t \u0003\u001e\u001eÞ\u0018T{{Gs\u000bKCCcSSs„‹éé\u0019mmmcccÏ>û,Ý-ðÕ—_¾ð×\u00176mÚ\u0014\u001d\u001dííí\n\u0007\u001eœKMMÍËÏG\u0017CKsrsòá\u0006\u0014\u0017Á\u0019¨onêêííY;ÜÙÓWZU\u0013\u001c\u0011c`fyß<•û\u001eX0OUóþ\u0005\u001a÷Ý¯‚UU-½yjº\u000b4ô\u001c\\½ù²\u0010N`\u0010W.GâËƒyA¼ ¹'Oàê\u001bàìå-’\u0007§ee‹$2\u000b+kX\u0014{\u0007G++\u001b\u0003}\u0013uu]5U\u001d\u0004±ª*Zš\u001azv¶Î8ßàà08+;\u0007\u0001NeÕ¢eË\u0011ZµåäätwwïÜ¹síÚµD\u0003Ê+À H\u00020±„a(G¬Q\u0001^o‘ïß¿ÿÃ\u000fÉï\u001e+†_‘¹[¸ûª ÐCÄq_¹òØÂ…¥ááá\b\u001eø|‘D\u001c\u0018\u001e\u0016äçËñ÷çðù\u0002__?D_\\.ßÍ\na¡#ÄßÄÄÔÆÆ\u0016ä¨ªª\u001e\u001aZ»oßþ¼ü\u000ffô§ðÍ7¯¼üòÎ\u001dÛ\u000bòóy<®««‹»›k°<(!!>55\u0005=XC\u001eŸ¯\\\\WÛÖÑ>²aýø¦c›6.ïèÈ((2´´¾ï>\\º*÷©¨/ÐÖ½_UCUG_ÇØlž†Î<uíù\u001azjÚ†\u000f¨j«h\u0019Øyøø\u0007\u0006ù\u0005\u0007{Ëd¾2™+gåéiãíå.\u0010x‹„Mí\u0007Oè\u001e\u001a¬X¼(» ×ãïäâêãÇqu÷¶¶u²´´C\u0004««k¬­m «c¨­­occ'\u0010Šƒä¡QÑq™Y¹ÕÕ‹;::—,Y\u0002' ¬¬\fÇ\\†!\u0001ÌDYiYE9xðÝ7E\u0011Ž¾ù&ù!CÚ·\u0014´‡Iwß%ÌJ\u0005¦×¿\u001flë\u001b¡8ÐgŸý\u0013$/&&F*…oH¾™$\u000f\n—\u0007…áêÇåîééåää\u0004' ¾\u001eô\u001fäÈÌÌ^³¦{rròâÅ‹ï½÷\u001eý\b\u00026:ùöµWÿuâøQxVb‘ÀÝÍÅÁÁÎÛÛ3H&\t\n‘\u0007Ë\u0003‘r²2\u0010³íÞ³óð‘Ãç.\\Ø¾sÇ’†ú¨¸XmCÃûîŸwŸº¦ª¾á\u0002=ýùÚºóuõîSÓœ§¥«n`t?x e0_C_ES_UËà~Uí\u0005º†–^^žAN\u0002•¯¹—§ohH\\a¾06ÚÖÏ»®£õà¹S§\u001e¹pþñ‡v\u001dÞÓÔ¶43?Ï;€ãåÏå‹e\u0002Q —\u000fÇÞÁ\u0015Á‹‰©%“ÌMàm˜XØÚ9ñ…RyHxttLFF\u0006.÷šššrò¬yyiYIQqQ\u0001<™²…Ì×Â øÝð-\u0014OÙ£c±¤\fÐÂ»…\u001f…\n,È\u001bü>>p`o|\\\u001câ\b±Xêë\u000bu\u0003a\u0005À\u0003\b;ô¿£½sËäÖS'O¿ð\u0002ûÆ\u0002\n†ýì7m>üðƒK\u0017Ï·,k–\u0007Jý¼½<Ü]]œ\u001d„B^b|LZrbRBlqaÞ@oÏ¡ƒûŸ¸úø\u001fÿøûmÛ¶–W,”\u0005ÊÔ4Ôï{àþ\u0007ÔÕæij«è\u001a.Ð5PÕ7Z G2êF¦$¯k ¢kð ´]ÇHC×XUS_MËà\u0001MÝy&¦†®®æÞÞ¦ž^°ÿyõK–\u000f\u000fŠâc-}<ëºÚvž:²õè¾­‡÷l;²ûø¥3{Ž\u001dnn_\u0011›’š–^\\V\u0019\u0016\u0015Ç\u0011ˆ½¼\u0003\\\\==<}\u001c\u0010úZÙZZÚZXØÙØ8Ú!ÊqvÁ¹Ëåòˆˆˆäääì¬ì¢üBr+\u0003.DaQ1â]æ}\u0012UUU—.]RLÕüx‘$ðƒ¨À6\u0015„Â\u001f}ôþØØ(„Ï\u0017úù\u0005À3\b\u000b‹@”ÕÝÝ»{÷î\u000b\u0017ÎÃ\u0003P|‰\f¸~<\u001fÌ  ]ðùgŸ<ùÄ•5«»bc£y\u0001þ\u001c\u001f\u001f_O\u000f\u0001‡\u0013\u0019\u0011’žžT^ZÐº´qtdèÔ±ÃzæwO?õäÄøhn^6Ôbþü\u0007æÍŸ§g ¯­¯§¢¥\u0005+0_Sÿ~\nÝùÚ\u0006*úÆ\u000bôŒÔÌÔ\fMUtT´\n5õL4´45\nµ´Õt¥cø+}c\u0003\u0007g\u0007.ßÀÅ5¿¡¡¬u¹OH°•ŸWC÷Êm'\u000fO\u001cØ9q`ÇÄmã{·l?¼÷È¹S\u001bwnï_¿\u000eWºw ÏÑÍÓË/ÀÇ7 ¡›»'ì#'@àáæíäàêààlggïÀ ×ƒO\\l\u001cxP›—Ÿ“\u0007ÃG¾$ZDnqíÚµkš‹@\u00126w÷p‡¾\u0002\u0019´ï?\u001aö‹”\u001f~ø\u001e\u0002âm[wìÜ¹ûäÉÓW¯>ùâ‹/}õ\u0015{¹S|C~åšLH|õÕWX^g\\eàïûë¦ã9Ù™œ ô«‡;?À/:<4=)±ª¼teGë®m›\u001f¹xî¹?>óðÅsÃ\u0003}\u000b‹\u000b½=ÜæÏ»\u001fIGG\u000b’ ¡¥©©«£¡«§©k¬¢m´@Çh\u001e.zmƒyºF÷ë\u0018Î×3Fš§m¨Îèªšž¦†þ‚ùš\u000f,Ðž¯mü€¶‰Š¡¹©³‡¾Såò\u0015yµKœ„\u0002[ŽomWûÖ\u0013‡Çöï\u0018Ý»utïæu»6nØµil×–­\u0007wC\u001eÖ¬\u001d\n\fpñðòöów÷ðÔÖÑ121\u0011‰%ÑÑqa¡Q2Y°@ ‚@zxx€\u0007\u0016\u0016\u0016¸>àEæåæ!‘oææçƒ\u0004™™™===¯½F~¿tÈÏÀ)2w\u0011?ˆ\nÀ´Õ\u001bñ\nó327\fù4mqF×¿ù\u0016Êw>ôÇŠáÛo½yâØQ¸€2©8Àß×ßÇ\u001bz\u0010,\u0015§ÄÇ,©©Z7Ôhßî_?þ(HpøàÞÅ‹*R“ãù\\?Sc\u0003u\u0015\u0015\u001d-M\u001dm-m\u001d-m]\u001dumÄ}zêzúš\u0006fjú¦ê†æªú¦óuÔ\fÍæë\u001aß\u000fÏ@K\u001fäÐ20Ó3¶40²42´Ð×5Ñ×3×3²Ñ2´º_]ÿ\u0001u=mS›æ®îüš:;\u0017\u0011¿±»kòð¾u»A‚Éõ»7\nï\u0018\u001fÙ9>²}lýöñÑ›÷ž8Ú?º>6%9@À÷ãp]\\]\nŒ\f]ÝÝ\u0012\u0012\u0012“’’\u0013\u0013S\u0012\u0012’ “!!!bæ-q)))Ð Â\u0006\u0006ô)˜æææßÿþ÷´‹¦\n?-d:énâ\u000e©p{ \\`\u001ef ÷ÞÉ:#tL\u001591f•ùÉ!(Âõk_“o§\u0013Þ|õÕ\u0017¿ùÍÕöö–ÈÈ0.×/ÀßÛÇ\u001b‘:7>6ª¾nÑæMcgN\u001dûÃ3O?óôÓ›7nÌÏÍöõõ437tvq@d§¥££©­«¥£§Md@WÓ@_ÝÀ@ËØDÃÄTÝÔ\\ÝÂRÇÆÖÀÆN×Ì\u0012Þâ|Míy\u001aZz&\u0016\u0006fÖ°\u000e:\u0006f\u0016ÖNö\u000e\u001eÎNÞNŽÞV\u0016N:\u0006æšz¦z†VóÕ\f\u0016Õ·ä”TÚúø\n£#Û×\u000eLìß5²crhÛøÐŽñÁí£CÛ×\nl\u0019\u001eÞ6:¼eÃºmãÛ\u000fíY3Ü\u001f•” ‘‡y‹ žX\"MJJHNILJINKOËÊÊB„‰X:(Hž‘‘•““[P@f'™‡ärJK\u0017ž={Ž~µ†éAüg»Ž)a—s\u0005ÙËŒ\n\u0015…?*\u0015¾\u0003;þS g5%zÄŽ0î!\u000eëë\u0017_úëäæñœ¼\f¾ €/ðçp}\u0002\u0002¼¢£Â–6×ïÜ±åÁ‹gÿôÇß]~äÒÊÎ¶¸˜Xg'\u001755uu\n5\u001b\u0007k\u001bG\u001b-ø\u0004šÚêº\u0006šz†\u001aº\u0006\u001a\u0006†êFF\u001aÆ¦Z¦\u0016\u001a\u0016ÖšvvÚŽ\u000eúŽNæp\u0006\u001dœ\fÍ-Ô´´Ì-­Ì­mÍ¬lm\u001d]}ü\u0005\u001eÞ\\\u001b{\u000f[{\u000f;\u001bW'{w\u0007GwK;'C\u0013\u001b{[÷ ŽÔÙÓß9€\u0013™™Ö1Ü\u0007s°vëXßäº¾Íëz6\u000f÷m\u0019êß<Ô·iíÀÆáMÃ#[ÖOîÛº¨i‰<\"šÜ»Š!Š˜\u0018—š–˜’š˜œBÞèƒp\tnSPPp||b\u001eñ\u0010\n\u000b\nŠòò\n‘&'·¼ÏÜ¡VÜ†dº@1rw º-\u0005[¤„9S\u001eÚ4°»¿\u0019ãØÜM@Hpí\u001a¨ÿ9\n\u0013>ùäÃ³gOÕ×/\u000e\u000b\u000bFhÀã\u0005ðùœØØ¨¥Í\n{÷ìzäáKW®<zäð¡ššê@™ÔÊÊRUU]UESSCÛÜÂÜÞÙQ×Ð`¾š†Š†®Š†*’¦¾Š–®\n<D\u001dC5=3UCKU\u000b[5+{\u001d\u001bGC[G\u0003\u000b\u001bC3+k;G;{'+\u001b{Gg7_\u000eßË—cnaodbené GnqX»¸#\bàXÚ889{¸ºyké\u0019X¹:eU\u0014vO\f\u000en\u001eéŸ\u0018\u0018Ü8Ô;>Ø¿qmßÆ¡~&ß3Ú?01Ø7Ú·~óúž¡Þ 0@šž–\n-HNJJMI&ßêJIÍÊÊ¥ß\b\u0005\u000fÀ\t «\u0010†¬¬ìU«VÿóŸäÇLÑG¸X°¼Ó¡Ÿ\u001bî„\n\u0014ì:\u0003Â‚)°E\fØ¢\u0019 ›ƒ\u0001°\u0005´àw¿{º»{uzZJ L\"\u0012ò‘ø<NTDXA~nsSCooÏ²eË23!\u0015\u0002##CUUU8\u0002ºº\u0006Z\u001aú\u001ašºÖ6v®ðÎô\n\u001fX ¹@MwžŠÞ<\u0015Ý\u0005\u000b´ç©hÍSÕ~@Uw¾šÑ\u0003\u001a¦÷ëYÜ§g¡jl£ej«ªcjíàžœieeoieçæácïìfne£¦¦¥¡‰=\u001b\u001aššÙ:»øpÈý2_\u000eÇÔÂÊÏŸcfn9_e~ZiÞÀö\n}[Gú&\u0006úFûûF\u0007zÖ\u000fôl\u0018ê\u001d\u001dî\u001d\u001dêÙÐ×³¡·w}ïÀúÁ‘Á¬ì\\{;ÇÔäôôÔôäøÄ0yhRBjV&Ü‚\u0002Ø\u00058\nii\u0019H¹¹ˆ\u001aJ²³sêëëŸzê)ô\bÓ?Ô†\u00120Ýùãâ†;“lÙ-qÓ#c·gÀ\u00161`‹f \u0006ƒyË\u001b‰/Þúï›“›&Š\nóA\u0002\u0001B.@Àã‘ï3ðùòÀÀ ?\u0007{{KK+ccS\u000b\u000bKcc\u0013--mm-]-M=\u001d\u001d\u0003mmC-\u001dCŒ¥£«–žÑ\u0002\u0015íù`À|Ýù\u000btU\u0010\u0002¤ó€\nÈax¿šÉ¯4Í\u001eÐµT5°Ò0´RÓ1×7²æ\nd.nÞ:úFðö\u001d\\\\ù\"qVvŽT&³°´JÏÊ\u0018Û8ÞÐÔ ÏßÛßßÜÎÆÃÇ×ÌÒú¾\u0007ÔL]¼J[Û»·m_31¾zÝp÷†áÞ\n#Ý\u001bÖ¯Z7Ü5Ò¿f´ÕHw×Pw÷`ïÐºuK—µà°c¢£\u0012ââø\u0001¼ðÐ¨´äì”ÄtˆD\\\u001cy¾!%%-995;;\u0017ŽÂ¢E5ÇŽ\u001d£¿ÒÞ»ioßu0c2—›ÔìvS`KgÇ-Ú\u0010*0•¯þûŸK›\u001bÃBƒ¥\u0012‘D,\u00123¯ÜÆR\"\u0012\u000bx|Ow\u000f+\u000bKSx|êšZZ:dZÚØ\\O\u000fº`fh`ª«k¤«gl€ë×ÜÊØÌRMKwŠ\u000e¢‡\u0005\u000btTHÒVY …ü\u0002\u0015½ù*†óÔŒçë˜©\u001bZ«\u001bXj\u0018Zjè›©i‘\t%\u0007WOK[\u0007\u0013\u000bK7/¯ä´Ôþ%\nõIÉIc\u0013£GŽ\u001e¬¨¬Hƒœ=¼]¼|lœ\\\u0011p\u001aÚ¸k[{ÙpC«V\nõlÙÝµn¬kd]×Èpçº‘Îõ#-CÝm#Ý\u001d#½+úº;ûú‡Ö­\\¹ÊÜÜ<4,(::\"$8<)1=:2)1>-11522\u001aÖ!11\u0019ò *@'&&6*^ÚÅÄì„Òÿ\u0006s~^áî\u001c\u001c¨ðí·Ÿ}þéÆ‰1±H\u0010\u0014(\n\u0014\u000bÈ£NR†\nÌ;Ø\u0005þ¾~v¶vV–V..nnnžNNîÖVö&Æ\u0016&&\u0007\u000bccK\u0013#\u000b\u0003C\u0013KkkSsK\b»Šª¦ªšŽšª¶šŠ\u0016MªÈ«ê©¨\u001a©¨\u001b/Ð1R50Ö6µÐ46S×7VÑÖŸ¯¥«ª£obmëìéÁ—HB08qñÁÁ¡2Y`\u0012œ»ŒÄ„Ô”Ôì\"4ÒÔÂMKÇJÏÔÁÜ=ÀÔG¨ãèë%]Þ·~hËÎÕ“\u001b[ÆG–¯_Û¶axéHOãÐê–áåýƒË×\fõ\fŽµ¶­437\u000b’‹ÅRA —\u001b\u001e\u001e]”•Y\u0010\u001d\u001d½''!˜È„šš¾jÕš—§î¶@\t\u0018\u001e ‘ìÿ†\u0010³R\u0001\u001fOÁ®O-½\u0019Ø\u0016ß\u0007Ò’¡ÂG\u001f½¿²³\u001dvA&\u0015\u0007ŠEA\u0012I X\"\u0013‰¥b\t„\u0001ªÀ\nàøxy{¸{zûøúùq<=|\u001d\u001d\\Á\u0006\u001b\u001bGk['\u001b\u001b'[[\u0007\u000bÄ..6v¶°\u001b*ª\u001aªjZjªZjj\u001aHª$i©¨é¨¨\u001bÌ× 3Í\u001aÆÆÚffj††È ¸¸_[ûWšZªzúº&fF–VÎžÞ<‘”'”ÀLI\u0003\u0003\u0003ÃÃ|\u0005\u0012K'o\u0003sw}c\u000f\u0013\u000b/S\u001bO\u0003[wcW\u001fs \u000b7qxB×ÈXÿž\u001d;6vLŽ­\u0018\u001b^6:Ð°®¯ix¨©oí²îu«\u0007Æk–4›YYHä\"o\u000fGWGI`Px\u0004y!\u0004xš’™‘ž“‘žžžÙØØüÔSOÃID·LY\u0004,I`Å˜Q\u0002¦ðnr‚î\u0010 «ß¹t]\u0001¶tî`·¿%pŽ0\u0010`þS¿~\u0002^BH04A\u0014,“†Ëå\u0011¡!r¨„D$\u0015‹¤\u00121’@À\u000fàp|}ý|}ýÝÝ½˜\u0007}ÝÜ½ÝÝ½=ÉW!Èm-S3ScS\u0013\n-˜\u0003B\u0002\n\nMu\n-5\nMU\n\u001d\u0015MýùšFóµMTŒL4,Ì5ÌÍÕLM\u0017\u0018\u001b-06^`h¤bh¤nd¢f`¤ªo¨©o¬olŽ¤k`jhdmbê¤m`£¢k®f`£kîfaëãèÄ±±÷4µq2³w3sò°pö\u0016FÄA\fºwnìÞ¶©kËDû–Ñå\u0013ÃKG×7\u000e\f·ônXÙ?\u0016Ÿšéàâ,{ø¹\u000b¤Âðè¨˜¸X\u0018\u0005ð \u0013ÎbNazZVYYùþý\u0007ß~û]p€ò€v\u0012X1•n«Wç\u0004:XÊ¸ïÇóJnúy\u0014„\u0007×@ö¯?ýä£\u000bçÏ®\u001d\u001a¨[T\u001c\u001f\u0017\u000f÷\n.Vd8ø \u0007‚dBåÌëº!\u0019b.—çïÏõññóöñóñ\tðñ\n\bðãA-ÜÜÝ\u001d\u001c¼}ýŒM,Ô5t45uáXhiëª¨kªë ¤4z@ÝXUßJÍÔVÍÂVÅÜZÍÒf©å<\u00133U3\u000bu3KM\u000bkm\u000bk-S\u000b5}\u00135mCu$M#5us5\n+5mKucKMs;-KGC+7k;_/w¾¿;×ÝÎÃÎÌÞÁÎÍÖÉ]\u0018\u0015Ñ¶~p`Ëäªñ±¶ñu+6®k\u001dßÐ:²¾kÝDÝò•î^ä•#\u0011Q‘!ò¨˜è¸„¸ø„¸¤¤ÄÔÔ\fP!'» 33wddýþó\u0006\u0006\u0002P<ÐÌ˜\u0006\"\tÔL0%?\u0014·\u0018\u0011à4Å4\n \u0002Î”ùõ­ëÿ|åå3§Ož8~të–É¶Öey¹Íä”äøø¸è¸ØÈ¨ÈP°!<<\u0014I*•\b…B.—\u000bkáç\u001fàïËåú\u000b8\u0001\u0002wwO(„‹³\u0007ò\u0016æ6\u001aê: ‚†&â\f\u00035-\u0003Um3\u0015mk\u0015}{\n\u000bw5K÷\u0005–®ªÖ®\u000b,\u001f0·[`\u000erØi˜ÛišYk\u001a[j\u0018˜kè›ké[hëškêZ¨éY.Ð7Ÿol®ff£mî mé¢gååhÏ\nt“%ºHâmýÄV.^öN–v¶¢ˆðŽ¾ÁÁñ‰Õ£ëÚG‡º&×÷mÝÔ>0\u0010\u001e› \u0017'44\"’¼¼'!š¼i4>9!6\u0005THIÏÌÌIKÍhoë|á…¿S!@ÏLñ€âÇºJoŠŸ†\n0\u00108iü»~íK¤7^íéßüúÂù3§O\u001dÛ·wç@wUeYYiaVf*8\u0011\u001b\u0013)—\u0007\"…„È™\u00177\u0007‹ÅP\b®·Ÿ‡›·¯\u000f' €OŸŒòôð“\u0007…[YÚkjèhhhkjëkh\u001bkéZªëÚ«\u001b¹©[ú«X\u0005Ì·ö[`ë;ßÚcž%\bá¢fé¤ié¨en§mj­ed¥eh\t*hê™«ë™ªè\u001bß¯ot¿¡±ª©¹–¹š¥³ª•»‰¥¯·\u0015/ÁV´Ø;¸\"@˜àîÊµ³t°0\t\u000f\f\\Ýµªwd¸kýÀÐöñÉ\n9¥\u0005.n.A²Àˆ°HFì\u0012‘\u0012â\u0012Rá&$%f¤“é„%Kê¯\\yâsæëPäÒ˜šU$¼¸å\u0015ücà'¢\u00029[\u0010á+fž\u0011k×?ýôã7ß|ý×O^={æä™ÓÇ\u001e9°qbCsÓ’²’ÂÜÜÌÄ¤ØˆÈÐˆˆ°ÐÐàÈÈð¨¨H(\u0004Ÿ/ô÷çxÂ§„½ð&ÏErü…\u001c?AZr¦‡›§ž®¾–¦ž¶Ž‰–¶…¶ž£¦‘§ºµPÅN¢â œoÇgã3ÏÖSÅÚMÝÊYËÊIÛÜ^ÛÌZÇÄRÛÈBÇÀLCÏDMßXÕÐh¾Ñ\u0002#\u0013US\u0013Us³\u0005V6\u000b¬\\4müŒ,\u0003\u0002l8I\u000e~M\u001c^Ÿ\\´\\âëcË·Ð”ðºV¶­Û¸¡wýPVi®£›ƒXÌ\u000e\u000f‹Œ‰JŒ‹MŽ‹KINLIIHLKN\u001e\u0014\u0014\u0014íÞ½÷Ýwß\u0007\t®]ƒ@²ª@Át\u0012»Jó?6¾‹ Ø‚ÿ\u0015˜;p\u001c¿úê«/@\u0005ê\u001f!ÿÆë¯>té<äáÜYpâÄŽí›››êË+K2³\u0010‹“wøÒW»c\u0019\u0016\u0016&—ËE\"‘¯¯——'h\u0011àÏóóá\b\u0002\u0004eEÅá!!Î\u000eÎ¦&V\u0006\u00066††®:&>ê¶Òù\u000e\u000bœ$÷Ûsï·ó]`ï5ßÖUÅÊAÝÜVÓÔJÛÄR×ØRÇ\u0010\u0006ÂTC×XMÏ\b¾¤º‘¦¡‰–©)üM5+[5[·y6¾\u001av<\u001bÛ ¡W©»w/ÏoG¼xSŠ¸=U–(öÌNŠlk[ž’•ááç…è1X.\n\u000b‹Šƒ\u001eDÇ$FÇ'Å'$§$¥f¦e¦§ftw÷¾öÚë×¯K§\u000f\u0018aøÉp'ó\n·\u0006Ûî6À0€¸\u000bŒ6€ý4púæwþûÄ\u0013WNŸ>yæÌ©ó\u0017Î]¼pnçÎm--Këjkòós“’\u0010‘Ç1ït\u000e‹Š\u000e\u000f\tƒ\u0006‹„\"\u001e‡ãÏåpx\u0001\u001c?O/!' !:ªªl¡„/uwñ··õ×7óQ·—Ìs”Îw\u0012=àÈ™çà»ÀÁsž“Šµ½¦¥­¶…¥ž¹¥¾™•ž±¹Ž¡™¶¡¹¶¾™¶®±¾ž±¡¾‰‘¡…‘©ž•«–µ—†\u0003GÕ6@ß:ÀÉÒ/ÂÁg±¯ßp°ß¾ÜÀ\u0003Ë3\u0007›2\nSÃä2!‡<Ç\u0018\u0012\u0014\u001c\u0004‹\u0016\no'\":&>9:1%:95&1%1)\u001dáÃÒæ–?üáOð\u0011™~ ½ŠóŸê–¹uã~\n\u0005-¹›\u0006‚îQ\u0019lÅ\fÐ*\f?Æž¾9.\u00196ØéÕWÿuùò#—/?|þüY„\u0018\u000f^<ÿÐ¥‹{÷ìj[ÑRW»(';#1!–¼Ô76\u0002l\b\b\u000e\u000e\t”Høb!_Ä'¿ð‚è‚\u001fà\u0007—2'=»¤ B.öæ„\u001a{\u0006ÎwäÎ³÷]àè­êä¥æä¦bc¯am§cm«kem`ie`a¥ob\u0001*@\u001bôõÍŒôLMôLÍôMÍŒ-MÌ\u001c\f,\\´¬ÜÔl<Ôl=õí|-­¼\u0003ì|Ò¼\u0002V\u0004\u000b‡Óä¹ò‚8.ßË!<8(8$BJ^\u001a!…hEEEÇÄ&DÆ&Ä$¥Æ$§Æ&¥Â[¨Y\\ÿèåÇ>üð#ô\u0003$z\t\u0014è\u0016Æ&ü(Fý\f%°\u0015\f~\u0010\u0015ØýÍ>ä³ÝlÆ†à\u0006\t2¿þæÓO>ùãïÿðè#\\yüÑ'®>\u000e6À‡€É¸ôà¹ƒ\u0007ö¬ì\\Q]µ\u0010±FB\u0002´\u0017NYDxXˆ<H&\u0015Kd\u0012©/àÁ•ôƒ\u0003áíïë\u0007±ˆ\b‹É)(ã„Äšû\tŒÜ|\n]½´ì4¬mÔ-¬´,\u0011IZéš[\u0019XÙ\u0018YÙè›Á]0×54ƒ\u0018˜é\u0018›é\u001a›\u001a˜˜šY¢J×ÒFÃÒZÝÊV×ÞÉ\u0004Ž€«\u000fÇ›\u0017èÃ­ˆKÈ\n”ú¸Ê%<\u001cC\bdJ\u001eÆã‹Å\u0012p\"<2*.6.\tqCbjFRZfBrzn^ÑÖm»^ý\nr¾Œ\u0018ÒsG†Î4ÿT¸\ntxf\u0003Ûh\nlém€Ý`\nl©\u0012Ø\n¢\u0011dê‰.ÿûÆ›\u000f^¼xéÁ\u000b?v\u0019„¸zåQðàü¹SçÏ¼xáôÁ\u0003»;;VTV,ÌÊL‹‰`¢Í°°P2\u0005\u0011\u0014„\u0010ƒ¹«Åó…\u001f\u0001¯Ò××ÍÃËÑË'\"%-1/? Hîèãcåâjîèhnï€djcg\u0002*˜[ê\u001a™jë\u0019éé\u001b\u001bê\u0019\u0019ië™€\u0014&æfæ–¦ÖÖfö\u000efÎ.Öî\u001e–Î.nþ\u0001±Iä=;\\?¾È_(\u0017\u0005\u0007ÊäòÐ y¨D*\u0017\b¥HäMŸ‘$†ŒOHIJNOÏÈIKÏÎÌÊëí\u001bzéåW¾ü’Ü—g®\u0016Š® \u0019\nÚ1ìÊ\fL«¥« »>GüD÷ n\nìš!\u0001I×¿þüÓÏžûóŸÏž9\u0005Ó 6<qõ±'®^~ü±‡/^@ÙÑóçNœ;{êÐÁý]]‹\u0017/ÊÎÎ¤?,H£\fDž`\u0003Ççr)\u001b¼ýüýÉ30~~\u001eÞ¾Îîî>\u0001~¸P“ÓÓä¡!þ\u0001þ\u001ež\u001eNNŽööö¶6vÖV66Ö¶666¶v¶öŽŽvö$¹ºy\b\u0004’èØ$l#‘\u0004yyùù\u0007ðqÝ‹Ä\"ò›iaÁ¡áÁ!a(ápÉ/äÈ\u0010ù†FÆÄ’\u0017\u0001ƒ\u0007©iY \u0001¨°|yûŸÿô—O?%/ê\u0002fcÀ\u001dƒî–]™#îÐmdWæˆïß\u0016ÂÀh\u0003:\t-ß~ë­Ç\u001e½Œ‘‡6\\~äÒåË\u000f‚\nHW\u001eøÜ¹“§N\u001e=uòØñ\u0013G\u001f?244P__[X˜Ÿ”œ\u0010\u001d\u001d\u0019\u001cL~'H&“Ò))\u000e\u0007\u0006# \"\fŸÇç <Ž\u001fâ\u000eO\u000f\u000fw7g'G\u0017gGO\u000f7TÈ¤²àÈˆˆ¨˜è°˜(yx¸P*óòñurrñpó\u000eðã\tù\u0012$‘P&\u0014ÊÀ\u0003I`ˆ@\u001a$–‡ŠƒäB‘„Ë\u0013\nRYpXx4\u0012¹×”Æüh@&xPS»äÜ¹\u0007ÿûßwp¢ôi^zÒ´O@‹[t\u000eé¸\u001bÁVÜ\b¶N\tlÅ`ë¦@\u000bç@\u0005v»)°¥·\u0007v›)°¥\fØ\"% S®1€õ|ûíÿ^¹ò\u0018B‰³çN]¸xæÁKç.?úàc?|é¡ó\u000f?rñÜùS'N\u001e9uúØé3ÇÏ]8µatxyKSqq!ÂNØ\u000b†\u0010\u0012©T,•JÉ¯‡‘¯g‘wC\u0006Jeb\u0012rp!\u0017HþþþP\u000eÀ\u000fî…?ì‰Ÿ?ÇËõáaè¹¾\u001cn —üÒ\tŸ‹$\u0012\t¤H<®ˆ‹¼8P,“sÅR¡LÎc~¦˜Ã\u0015B\u0018˜W®\u0010Ó \u001eÐ·“fdå•-¬Ú¹s÷+¯ü‹:‰à\u0001•\u0004,©‹€\f€\fí\u0016\n¦?f\u0005Ûh\nlé\f°Õ\fØ¢\u001bA«\b\u0015Ø‚›6bWæŽ9mŽ–´_\u0014Kü‡©øä“ž}öÏ—/?„?{öäÅ\u0007Ï‚\u0007—\u001f½\u0004*<ôÐ…G.Ãƒ8uêÔ±“'œ>}\fµ[6oìh_Q^^–ž–\u0002…`~o’üª˜T\u001a(\u000b„A'?:(•’ß˜ƒ?\u0001}ðõ÷óöõõöóóõçä\u0017àí\u0017€aõãq|¹œ \u0012Ÿò¸<>_ Æð#\t\u0004R>yoˆ/p\u0005\u0012žP\"\u0010Ë˜w\u0001p™\u001fO\u000b‡\u001eÀ[\u0004\u0015¨i@*(,]»výsÏýå«¯\u0010\"¡CØ>™­¦•O[\u0005\u0014%4\u0003Ðòi`ën\u0006¶\u0005\u0003ZòãÎ6ÒÏ`Wn\u000fh\u000f\n ÃPd \u000f(ûè£\u000fž}öO>ú\b\u0014âô™\u0013ç/ž¾pþô…s§.^8ƒÌ£—/\u0016\b1Nž8râøad\u000e\u001cØÝ×»º–™Š FLtHX8ù²=œËˆH$ò¾0i _\"á\bE0ý®žÞn^¾\u001e>~ž~\u001cŸ .´\u0002î\u0005‡Ëó\u000fàúƒ\n<A _Ä\u0015J¸\"I€€¼V˜'`à‘D\u0002\u0019#òÆ6\\\u0011u\u0011@\u0005ª\np\u0014˜Ÿ!Ìmkë¸rå‰?&¯a£gIOÉß¤—¦•ÐÕ™˜VKW\u0001vý6 Ü~ÎT ›±+ß‡™-ogs…x\"Ï\u0018Šïæ§ß}÷í?ÿù\\~èÌÙ\u0013§N\u001d?öÔÅógŽ\u001f=¸¢eéÄØú³§Oœ=}üÔ‰#G\u000f\u001f8~ô\u0010V\u000f\u001f:°vh ©¹±¸¤0\u0016FtddTDt<s›+\"L\u0016$“\u0004Ê\u0010÷ùq¸ž>>\u001eÞ>î^^®\u001e^nžÞÞ^\t¿ \u000eÜ\nA Äå“—L#q\u0011ˆ9\f\u001b \f|¾˜|\u001b8€/\u0010É‚C\"Èkª\u0019a€ÏˆØ\u0001Ö¡¶®áìÙó¯¿N¿ÿJN\u001f\u001cPœ %\u0004)ê\u0016š§P”ÐŒ2”k\u0015 %w†\u001b|\u0005¶Œ\u0001[4\u0003lõ`ë~\u001c`ÿÔhPB äý÷ß…B<öø£çOŸ:{òÄ±CûÅ|Ž¯§ÛÖMã?réÒ¹3\u0017Î@\u001d\u000e\u001eÜ·ûØÑÃ¨?uêÄÄøèòÖ¦¢âÜø„¨´Œ¤Ä¤¸˜Ø¨Py\u001cÞŸ\b\u0003\n\u0015 à:xzxº¹¹»»¹!¬€Ã\bU \u001bÈ¯\u0013\u000bÄ0\u0007ä¥A|1Ü\u0002$\u0018\u0005ú¾0._$\n\u0001\u000fÂ#bÈ\\B\\\u0012\fDQIù®Ýû^|ñ\u001fè$†\u0001ätèyýÜðã\u001aˆ»\u0002…R6à?%Ä\u0007\u001f¼÷Â_žÿÍ\u0013WÏ:¾´¡.-)~ldhß®í{wnCÉƒçNŸ?}âøÑÃ\b8\u001e9|âø\u0011ø\u0013ã\u0013ëZ[›jj*òò²ââ£àA„\u0004ËÅp(¹\u0001äÙZ?8\b\u0001þ°\u0011 »‡\u001bèàîáA\u001e¡ò\u0007!8\\Â\u0006¸\bˆ\u001d\u00028\u0002\f?ó~Fo\u000fO_?\u001ea\u0002t&\":\"ŠÜˆ† Ó•?²nìÏÏþå³ÏÈ[s\u00104P\u001aÐÓù¹áÎ©@Îi\nlÑ\u001cÁnÌ€-š\u0005l#¦\u0019˜A$b*\u0012ûäÃ\u000fÿþ—¿<ó›§Ž\u001cØÛº´qIMÕêÎ¶\u0003{vž9qôìÉcçÏÃ“8wäÐaXŠÃ‡ö8~èÌéãÛ·Mv¯YU]U™š”\u0012\u0011\u0016\u001e\u001c\u0018\u0014„ C(\u0011óE|\u00123øyúz{bŒ=<¼¼<<}<½|À\u0007o\u001fÿ Ä›\".\u0007\u0001ª\u0010\u0016\u0001Tðò\t€0ÀA&—‡GEÆ&Ä&¦¤¤e¥¥eeç\u0014´µw=úØ•÷Þÿ€Š\u0001Cb¢\nôÈ\u0001¦\u0005[4\u0003lõÝèð[ã;*°\u001frWÁîz\u0006Øê\u0019`«gr\u0003†\u000e__›ú\u000eîg\u001fôâ\u000bÏÿæÉ+{vnmkY:¶~íñ#\u0007O8züØÑsgÏœ>yêÔÉ\u0013p'\u001d=xäð£G\u000e\u001e=zxÏî]½ÝÝ5Õ5)É©ÁÁ2Q L\u0012$At\u0010 à\u0006ð\u0003\u00028~4²ðñõòö…6€\u0013\u001e^D ˜\u0019åˆ¨èxØ\u0002\u000eyÍ` bŠÀà°àˆè¸$ÈA.H_[×xúÌ…¿ú\u001as¶Ä\u0001bèKŽ\u001dÌQÿP0=q×0\u0007U˜ùñ´\u0004`×ç\bvc\u0006lÑ,`\u001bÑŽœ²\u0017Ì\u0017‡HÕõë×ÐÕÈ|þÙÇ/üõÙ'®>zôÈýûvÃ6\u001c:pðè‘£'A„“ÇŽ\u001d;´er|rãèÚÁ¾=»vìß·÷ðÁÃ\u0007÷\u001f\u001aè\u001f\\´hqzZV``ˆL*\u0017\n\u0011+Š\u0005\u0002æûY\u0001äí0°\u000e~þ\u001c¨‚»—Ÿ›‡\u000f\\\u00018\u0001$:HÎŠƒ \u0012\u0002¾\u0004Û†GÇ%¤¤gæ\u0014äæ\u0015UU×nÛ¾ço'O0_c¾\u0016\f0GŽ„Ce}Æi@¡\u0002l‘\u0012Ø\n\u0006lÑ]Å¬ªpÓÂŸ\u0004Š#™y<è×k4Ü@\u0017\u0013§’\\v\u001füÞßþöÜåË\u000f\u001d:tp÷žÝ{÷ï;|ìØñ“ÇöíÙ¶¨¢hMWë¶ÉÑ3'\u000e\u001f9¸wÇ¶m{ví\u0002'@œÁÁÁú†úìœ\u001c±DÂ\u0017\n™‡ïá-ò9\\>‡Ã\u0003!|}‘¸žž~|¾$$„ü”\u0001†_$’aU @”\u001a\nëœž••WXº°jý†‰ßþîO_|I¾#\u000e*(èËœ\u0004<\u0006B…Û\u0004³Õÿ\u0002sžx¾Mà\u0004È\bÝULë\u0014¬Áì’)If¾šñ(¯}ýÍ—ß|K¾€üñ§\u001f½øÒß¯<qeÿáC[wìÜ`ß–#ÉqÁ=]ËžºzéÊ#ç'ÇG\u000e\u001fØ½{çÖm['‘vîÚ¶gßÎõc#Íõù…¹Á¡Á\\>—+\u0010ðøˆ\u0014\u0004äA\b?.™}\f\u0010øùpü|¹\u0010\u0003\u0012IBB˜\t† àðè„¤ÔŒìÜ‚’þÁ‘G\u001fòíw>¸výÛë_û\u0015þ¦:„9\u0005¬þFwNø±\"\br!L]\nw\u000b8\\6GA\u001e•eþ‘\f¹Ôˆ7ùõ—¸ìÈ¤5så}þÅç{é¥Ë—\u001f;tèÀÆ±áìô¸%U%Ç\u000eí:ulßš®\u0015G\u000fî=¸o×¾½;wïÞ¾eËÄääØÎ][\u000f\u001cÚ»iÓxëŠ–²…%QÑ‘0\u0013<ž ö‚Ï\u0013p\u0002x<Äþ<\u000eÜ\u0003¾\u0004z \u0012\u0005ÂQÉBÂÂ¢\u0013“Ó3³òZZÚOž<óÚko0L%ö€$–\u0004ô\fHþgˆ\u001f‹\n?\tÐáÄ™üš¡Â”,£û¿üò‹—^úû¯ŸxlÓøHIAv÷ª¶ß>õø£\u000f_Ø¿kÛ®m[víÜºwÏŽ\u0003ûw#²Ø¹cóþý{vîØ¶oïî-[&W®ìXT]•””ÈçC\"È­\bÐ\u0002ÿA\b\u0001O\"\u0014HÅ¢@‘P\u0016(\u000b\t\tŽLNÊXÚÜzøà±¿ÿýÅë0\f$XP€\u001c\u0015=ÈŸ-~^T`®›\u001b/ý;\u0005º_‘¡‚|í«Ïþù¿\u001f?zpí`ïþ½;÷íÙ±yãØäÆ±­[6\"íØ¾yë–Mûöî:~ìÈÁ\u0003ûöìÙµuëæÍ›7MNnìéé®««KII\u0001\u0013|}ýy<x”BÂ\u0006¾\u0004TˆƒäAa9Ù…K›Z·mÝõÇ?<Ç„Ž„\u0007JçB¤Íþ\\ñs¤\u0002À®ß\u0011\u0014{P,1*Ð\tÆ¯Äð\\ûç+/ž:ytýú¡þ¾5ÃkûG7¬\u001dÝ0¼aýPkËÒŠò²þÞ£G\u000e\u001d;zøðáƒûöí\u0019\u001f\u001fÝ¼yrëÖm===………AÞÞ\b/™\u0007b|\u0002D\u0002Y,â‰¤ŒŽöU\u001bÇ·<xñ‘÷ß#©Q*0‡ó‹ÁÿMUÀN0\u0012ˆß”óÌ¼õÔ»¡¾¹öê¿_ùõ“WŽ\u001f;¼yrbËæ\u0003ý=¹9Yò Y|\\LUeùðÚÁ£G\u000f\u001f!“S\u0007\u000f\u001f>\u00046¬];ÔÙÙY^^\u0001yˆ%ÏUFGÅ&%¦–•UT”W/©k<{æÂ›o¾\u0010÷Ë/ñYìçÒãùE`ÎT ýx7Fë¦¸õÎÑ³·Ó¹t\u000f4ŽWì8”ä\u0015pÐ\u0006ü‡'Áþ‚øûï¿ûÏW^þûßþzõÊc\u0007öï]¿nxõª•í+Z††\u0006`#àlž>}òäÉãÈ\u001c;vtÓ¦M\n\n\nÅÅÅÙÙ9‰‰©qäQöÔÂÂâÑÑñ«WŸxï=öG]ðQ?ª9 Ÿ¢\f¶â‡¥\u0002»K%Ðò™`«oÄ-ªæ\nº+eÜ´\u0010˜­=  ÁwÂÀLH\u0010$ÞÀ8\u0011R‘\u0001£Í€¯¾øâ³O>~ÿ½wÞ~ëÍ×_û7ÜÌçŸöÙgÿô»ß=}õêãO>yõ÷¿æÉ'Ÿ<{ö,¡Æñ\u0013çÎøá‡\u001füñßüæé7Þ w\u001d\u0001*\u0006ø bn\u0004m0\u001bØF³4cë¦À–Î [ý}Ÿ5\u001b~¬y…;\u0003{*S`K\u0019°ES`K\u0019°EJ…È3#Í.ÉØ\u0013\u0006°iŠ'ß\t8Y™ÑLPúåçŸúñÇ\u001f¾\u0007Š¼ýÖ{ï½÷é§ŸÒaf\u001bM\u0001œ\u0003¡;\u0004nØùmàÖi-À®Ï‚Ûi3\u001bæL…;þ¤ïÅÝÝ3Ó'ì\u000ei\u0006\u000bü#iêsH‰20xP\u0011$…ð…mÎ´Å¸B`Èl&³JhDÁ\u0018¢ï\u0006\u001e \n\u0014™™¸EÕœpÓýÌésQ¢(œþ@\u001b-\u0005¦­*0[ùL(7»­nÑ€n~›`·™\u0001T(’\u0002hÎnÆ€Ì_²‰Œ=F\\A\u0002$z‹œmÊ€!\u0003\u0001»Î€ÝõÍÀ¶`À\u0016Má¦…\u0014´ê¦`[(\u0016ÒÚÙ hIAW§S\u0001 \u0015ÊyeÌV®\fÚ\u0006`×oo«[€n~›`·™#Ø\u00190|!l\u001d]'$¸aÈo\u0004e\f\u0001»Ñ UÊ`+¦pÓB\nZ5\u0013lõ\f°Õ³cZ3ºúP.½\u0005n§\nÅí·ü^0‡6\u001dlÝO\nöhXó1+ØVS`K|(ÖÌV.ùy¹¿d Cos€©\u0017ò³Ã=*üïq\n?=ˆ\u000fÈ¦[^Ã·¬ü!P\u001cÀ=*üÄPŒÄ=*Ü\u0004÷\fÄ=°¸G…{`q\n÷Àâ\u001e\u0015îÅ=*Ü\u0003‹{T¸\u0007\u0016÷¨p\u000f,îQá\u001eXÜ£Â=°¸G…{`q\n÷Àâ\u001e\u0015îÁ·ßþ?\u0014\u001bÊ¼(xº¾    IEND®B`‚",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/Converter/Base64Encoder",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"Converter",
+								"Base64Encoder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Base64Decoder",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Product>\r\n    <ProductId>HT-2001</ProductId>\r\n    <Category>Portable Players</Category>\r\n    <CategoryName>Portable Players</CategoryName>\r\n    <CurrencyCode>EUR</CurrencyCode>\r\n    <DimensionDepth>0.1950</DimensionDepth>\r\n    <DimensionHeight>0.2900</DimensionHeight>\r\n    <DimensionUnit>m</DimensionUnit>\r\n    <DimensionWidth>0.2400</DimensionWidth>\r\n    <LongDescription>10 inch LCD Screen, storage battery holds up to 8 hours</LongDescription>\r\n    <Name>10 inch Portable DVD player</Name>\r\n    <Price>449.900</Price>\r\n    <QuantityUnit>EA</QuantityUnit>\r\n    <ShortDescription>10 inch LCD Screen, storage battery holds up to 8 hours</ShortDescription>\r\n    <SupplierId>100000043</SupplierId>\r\n    <Weight>0.840</Weight>\r\n    <WeightUnit>KG</WeightUnit>\r\n    <ProductImage>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\r\n    </ProductImage>\r\n</Product>",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/Converter/Base64Decoder",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"Converter",
+								"Base64Decoder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MIMEMultipartEncoderDecoder",
+			"item": [
+				{
+					"name": "MIMEMultipartEncoderDecoder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "Text/Plain",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "message text",
+									"value": "This is message text.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{host}}/http//ModelingBasics/Converter/MIMEMultipartEncoderDecoder",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"",
+								"ModelingBasics",
+								"Converter",
+								"MIMEMultipartEncoderDecoder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ConsumeHttpServiceWithQueryParameters",
+			"item": [
+				{
+					"name": "ConsumeHttpServiceWithQueryParameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Category",
+								"type": "text",
+								"value": "Software"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/HttpWithQueryParameters",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"HttpWithQueryParameters"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PersistStep",
+			"item": [
+				{
+					"name": "PersistStep",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"mpl_id\",pm.response.headers.get(\"SAP_MessageProcessingLogID\"));\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cpi_designtime_url",
+								"value": "{{cpi_designtime_url}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<message>\r\n    <productId>HT-1000</productId>\r\n</message>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/PersistMessage",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"PersistMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessageStoreEntries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"ms_id_inbound\",response.d.results[0][\"Id\"]);\r",
+									"pm.collectionVariables.set(\"ms_id_outbound\",response.d.results[1][\"Id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{cpi_designtime_url}}/api/v1/MessageProcessingLogs('{{mpl_id}}')/MessageStoreEntries",
+							"protocol": "https",
+							"host": [
+								"{{cpi_designtime_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"MessageProcessingLogs('{{mpl_id}}')",
+								"MessageStoreEntries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessageStorePayload Inbound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{cpi_designtime_url}}/api/v1/MessageStoreEntries('{{ms_id_inbound}}')/$value",
+							"protocol": "https",
+							"host": [
+								"{{cpi_designtime_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"MessageStoreEntries('{{ms_id_inbound}}')",
+								"$value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessageStorePayload Outbound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{cpi_designtime_url}}/api/v1/MessageStoreEntries('{{ms_id_outbound}}')/$value",
+							"protocol": "https",
+							"host": [
+								"{{cpi_designtime_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"MessageStoreEntries('{{ms_id_outbound}}')",
+								"$value"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UsageOfDataStore",
+			"item": [
+				{
+					"name": "Data Store - Write",
+					"item": [
+						{
+							"name": "Write in the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <productIdentifier>HT-1000</productIdentifier>\r\n    <productIdentifier>HT-1001</productIdentifier>\r\n    <productIdentifier>HT-1002</productIdentifier>\r\n    <productIdentifier>HT-1003</productIdentifier>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Write",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Write"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check: Select all messages from data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <count>4</count>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Select",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Select"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Data Store - Select",
+					"item": [
+						{
+							"name": "Prerequisite: Write in the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <productIdentifier>HT-1000</productIdentifier>\r\n    <productIdentifier>HT-1001</productIdentifier>\r\n    <productIdentifier>HT-1002</productIdentifier>\r\n    <productIdentifier>HT-1003</productIdentifier>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Write",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Write"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select all from the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <count>4</count>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Select",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Select"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select latest 2 from the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <count>2</count>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Select",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Select"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Data Store - Get",
+					"item": [
+						{
+							"name": "Prerequisite: Write in the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <productIdentifier>HT-1000</productIdentifier>\r\n    <productIdentifier>HT-1001</productIdentifier>\r\n    <productIdentifier>HT-1002</productIdentifier>\r\n    <productIdentifier>HT-1003</productIdentifier>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Write",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Write"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get specific product from the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <ProductID>HT-1001</ProductID>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Get",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Get"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Data Store - Delete",
+					"item": [
+						{
+							"name": "Prerequisite: Write in the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <productIdentifier>HT-1000</productIdentifier>\r\n    <productIdentifier>HT-1001</productIdentifier>\r\n    <productIdentifier>HT-1002</productIdentifier>\r\n    <productIdentifier>HT-1003</productIdentifier>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Write",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Write"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete specific product from the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <ProductID>HT-1000</ProductID>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Delete",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check: Select all remaining messages from the data store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<root>\r\n    <count>4</count>\r\n</root>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{host}}/http/ModelingBasics/UsageOfDataStore/Select",
+									"protocol": "https",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"http",
+										"ModelingBasics",
+										"UsageOfDataStore",
+										"Select"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "DecoupleProcessing",
+			"item": [
+				{
+					"name": "DecoupleFlowsWithoutPersistence",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "productId",
+								"type": "text",
+								"value": "HT-2001"
+							},
+							{
+								"key": "host",
+								"type": "text",
+								"value": "{{host}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/DecoupleFlowsWithoutPersistence/Sender",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"DecoupleFlowsWithoutPersistence",
+								"Sender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecoupleFlowsUsingPersistence",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "productId",
+								"type": "text",
+								"value": "HT-2001"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/DecoupleFlowsUsingPersistence/Write",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"DecoupleFlowsUsingPersistence",
+								"Write"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecoupleFlowsWithPollingConsumer - Trigger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"df_request_id\",response[\"requestId\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "productId",
+								"type": "text",
+								"value": "HT-2000"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/DecoupleFlowsWithPollingConsumer/Write",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"DecoupleFlowsWithPollingConsumer",
+								"Write"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecoupleFlowsWithPollingConsumer - Poll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "requestId",
+								"type": "text",
+								"value": "{{df_request_id}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/DecoupleFlowsWithPollingConsumer/Poll",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"DecoupleFlowsWithPollingConsumer",
+								"Poll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecoupleFlowsUsingJMS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "productId",
+								"type": "text",
+								"value": "HT-2025"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/DecoupleFlowsUsingJMS",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"DecoupleFlowsUsingJMS"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RestrictHttpMethod",
+			"item": [
+				{
+					"name": "RestrictHttpMethod - POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ns0:Product xmlns:ns0=\"http://demo.sap.com/api/method/restrict\">\r\n    <ProductId>HT-1000</ProductId>\r\n    <ProductName>Notebook Basic 1000</ProductName>\r\n    <Category>Notebooks</Category>\r\n</ns0:Product>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/RestrictHttpMethod",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"RestrictHttpMethod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RestrictHttpMethod - GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is either 200 or 404\", () => {",
+									"  pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/RestrictHttpMethod/HT-1000",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"RestrictHttpMethod",
+								"HT-1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RestrictHttpMethod - PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ns0:Product xmlns:ns0=\"http://demo.sap.com/api/method/restrict\">\r\n    <ProductId>HT-1000</ProductId>\r\n    <ProductName>Notebook Basic 1000 extra large</ProductName>\r\n    <Category>Notebooks</Category>\r\n</ns0:Product>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/RestrictHttpMethod",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"RestrictHttpMethod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RestrictHttpMethod - PATCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ns0:Product xmlns:ns0=\"http://demo.sap.com/api/method/restrict\">\r\n    <ProductId>HT-1000</ProductId>\r\n    <ProductName>Notebook Basic 1000 extra large</ProductName>\r\n    <Category>Notebooks</Category>\r\n</ns0:Product>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/RestrictHttpMethod",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"RestrictHttpMethod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RestrictHttpMethod - DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/http/ModelingBasics/RestrictHttpMethod/HT-1000",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"http",
+								"ModelingBasics",
+								"RestrictHttpMethod",
+								"HT-1000"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "HandlingAttachments",
+			"item": [
+				{
+					"name": "ReplaceBodyWithAttachment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml;\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/ReplaceBodyWithAttachment",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"ReplaceBodyWithAttachment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAttachmentBasedOnFilter - FileName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							},
+							{
+								"key": "FilterType",
+								"value": "FileName",
+								"type": "default"
+							},
+							{
+								"key": "FilterValue",
+								"value": "HT-1081",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1081</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1082</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1081.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1081.xml\"; filename=\"ProductDetails-HT-1081.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1081</ProductId>\r\n\t<Name>Power Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4300</DimensionDepth>\r\n\t<DimensionHeight>0.0700</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3100</DimensionWidth>\r\n\t<Weight>2.400</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1082.csv>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1082.csv\"; filename=\"ProductDetails-HT-1082.csv\"\r\n\r\nCategory;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\n\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails.txt\"; filename=\"SupplierDetails.txt\"\r\n\r\nID 100000048\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/FilterAttachment",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"FilterAttachment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAttachmentBasedOnFilter - Suffix",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							},
+							{
+								"key": "FilterType",
+								"value": "Suffix",
+								"type": "default"
+							},
+							{
+								"key": "FilterValue",
+								"value": "txt",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1081</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1082</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1081.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1081.xml\"; filename=\"ProductDetails-HT-1081.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1081</ProductId>\r\n\t<Name>Power Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4300</DimensionDepth>\r\n\t<DimensionHeight>0.0700</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3100</DimensionWidth>\r\n\t<Weight>2.400</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1082.csv>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1082.csv\"; filename=\"ProductDetails-HT-1082.csv\"\r\n\r\nCategory;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\n\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails.txt\"; filename=\"SupplierDetails.txt\"\r\n\r\nID 100000048\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/FilterAttachment",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"FilterAttachment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAttachmentBasedOnFilter - ContentType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							},
+							{
+								"key": "FilterType",
+								"value": "ContentType",
+								"type": "default"
+							},
+							{
+								"key": "FilterValue",
+								"value": "csv",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1081</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1082</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1081.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1081.xml\"; filename=\"ProductDetails-HT-1081.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1081</ProductId>\r\n\t<Name>Power Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4300</DimensionDepth>\r\n\t<DimensionHeight>0.0700</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3100</DimensionWidth>\r\n\t<Weight>2.400</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1082.csv>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1082.csv\"; filename=\"ProductDetails-HT-1082.csv\"\r\n\r\nCategory;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\n\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails.txt\"; filename=\"SupplierDetails.txt\"\r\n\r\nID 100000048\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/FilterAttachment",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"FilterAttachment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadMultipleAttachments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1081</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1082</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1081.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1081.xml\"; filename=\"ProductDetails-HT-1081.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1081</ProductId>\r\n\t<Name>Power Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4300</DimensionDepth>\r\n\t<DimensionHeight>0.0700</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3100</DimensionWidth>\r\n\t<Weight>2.400</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1082.csv>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1082.csv\"; filename=\"ProductDetails-HT-1082.csv\"\r\n\r\nCategory;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\n\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails.txt\"; filename=\"SupplierDetails.txt\"\r\n\r\nID 100000048\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/ReadMultiple",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"ReadMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAttachments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Header/>\r\n    <soap:Body>\r\n        <Products>\r\n            <Product>\r\n                <ProductId>HT-1080</ProductId>\r\n                <Name>Photo Scan</Name>\r\n                <Category>Scanners</Category>\r\n                <DimensionDepth>0.4800</DimensionDepth>\r\n                <DimensionHeight>0.0500</DimensionHeight>\r\n                <DimensionUnit>m</DimensionUnit>\r\n                <DimensionWidth>0.3400</DimensionWidth>\r\n                <Weight>2.300</Weight>\r\n                <WeightUnit>KG</WeightUnit>\r\n            </Product>\r\n            <Product>\r\n                <ProductId>HT-1081</ProductId>\r\n                <Name>Power Scan</Name>\r\n                <Category>Scanners</Category>\r\n                <DimensionDepth>0.4300</DimensionDepth>\r\n                <DimensionHeight>0.0700</DimensionHeight>\r\n                <DimensionUnit>m</DimensionUnit>\r\n                <DimensionWidth>0.3100</DimensionWidth>\r\n                <Weight>2.400</Weight>\r\n                <WeightUnit>KG</WeightUnit>\r\n            </Product>\r\n        </Products>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/CreateAttachments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"CreateAttachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadMultipleAttachmentsBasedOnFilter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/related",
+								"type": "text"
+							},
+							{
+								"key": "FileNameContains",
+								"value": "HT-1080",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml; charset=UTF-8\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <root.message@cxf.apache.org>\r\n\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n    <Products>\r\n      <Product>\r\n       <ProductId>HT-1080</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1081</ProductId>\r\n      </Product>\r\n      <Product>\r\n       <ProductId>HT-1082</ProductId>\r\n      </Product>\r\n    </Products>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1080.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1080.xml\"; filename=\"ProductDetails-HT-1080.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1080</ProductId>\r\n\t<Name>Photo Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4800</DimensionDepth>\r\n\t<DimensionHeight>0.0500</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3400</DimensionWidth>\r\n\t<Weight>2.300</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/xml\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1081.xml>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1081.xml\"; filename=\"ProductDetails-HT-1081.xml\"\r\n\r\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ProductDetails>\r\n\t<ProductId>HT-1081</ProductId>\r\n\t<Name>Power Scan</Name>\r\n\t<Category>Scanners</Category>\r\n\t<DimensionDepth>0.4300</DimensionDepth>\r\n\t<DimensionHeight>0.0700</DimensionHeight>\r\n\t<DimensionUnit>m</DimensionUnit>\r\n\t<DimensionWidth>0.3100</DimensionWidth>\r\n\t<Weight>2.400</Weight>\r\n\t<WeightUnit>KG</WeightUnit>\r\n</ProductDetails>\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <ProductDetails-HT-1082.csv>\r\nContent-Disposition: attachment; name=\"ProductDetails-HT-1082.csv\"; filename=\"ProductDetails-HT-1082.csv\"\r\n\r\nCategory;ProductId;DimensionWidth;WeightUnit;DimensionUnit;DimensionHeight;DimensionDepth;Weight;Name\r\nScanners;HT-1082;0.3300;KG;m;0.1200;0.4100;3.200;Jet Scan Professional\r\n\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails-HT-1080.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails-HT-1080.txt\"; filename=\"SupplierDetails-HT-1080.txt\"\r\n\r\nID 100000046\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails-HT-1081.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails-HT-1081.txt\"; filename=\"SupplierDetails-HT-1081.txt\"\r\n\r\nID 100000047\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6\r\nContent-Type: text/plain\r\nContent-Transfer-Encoding: binary\r\nContent-ID: <SupplierDetails-HT-1082.txt>\r\nContent-Disposition: attachment; name=\"SupplierDetails-HT-1082.txt\"; filename=\"SupplierDetails-HT-1082.txt\"\r\n\r\nID 100000048\r\n--uuid:09ee80b6-eb97-4f5f-b7d0-d981dfe352c6--",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/cxf/ModelingBasics/Attachments/FilterMultipleAttachments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cxf",
+								"ModelingBasics",
+								"Attachments",
+								"FilterMultipleAttachments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "mpl_id",
+			"value": ""
+		},
+		{
+			"key": "ms_id_inbound",
+			"value": ""
+		},
+		{
+			"key": "ms_id_outbound",
+			"value": ""
+		},
+		{
+			"key": "df_request_id",
+			"value": ""
+		}
+	]
+}

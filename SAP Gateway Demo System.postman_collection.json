@@ -10,6 +10,21 @@
 		{
 			"name": "Product HT-1000",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -41,6 +56,21 @@
 		{
 			"name": "Sales Orders count HT-1000",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -68,6 +98,21 @@
 		{
 			"name": "Sales Order ID and Item Position HT-1000",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -94,6 +139,21 @@
 		{
 			"name": "Find Customer ID",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -126,6 +186,21 @@
 		{
 			"name": "Find Customer Address",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -185,21 +260,103 @@
 					}
 				},
 				"url": {
-					"raw": "https://ic-2023-q2.it-cpi024-rt.cfapps.eu10-002.hana.ondemand.com/cxf/send/message",
-					"protocol": "https",
+					"raw": "{{baseURL}}cxf/send/message",
 					"host": [
-						"ic-2023-q2",
-						"it-cpi024-rt",
-						"cfapps",
-						"eu10-002",
-						"hana",
-						"ondemand",
-						"com"
+						"{{baseURL}}cxf"
 					],
 					"path": [
-						"cxf",
 						"send",
 						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My First iFlow",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{sappassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{sapid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}http/Products",
+					"host": [
+						"{{baseURL}}http"
+					],
+					"path": [
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Second iFlow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}http/Products2",
+					"host": [
+						"{{baseURL}}http"
+					],
+					"path": [
+						"Products2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Third iFlow",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}http/Products3?id=3",
+					"host": [
+						"{{baseURL}}http"
+					],
+					"path": [
+						"Products3"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
 					]
 				}
 			},
@@ -211,12 +368,12 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "{{password}}",
+				"value": "{{sappassword}}",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "{{username}}",
+				"value": "{{sapid}}",
 				"type": "string"
 			}
 		]

@@ -5,19 +5,6 @@ https://learning.sap.com/learning-journey/developing-with-sap-integration-suite
 ---------------------------------------------------------------------------------------
 AMERICAS:
 
-Session 1: https://sap.zoom.us/rec/play/4IZq6EiXHuy2uo2mp-PissTV_I2BlFIJh5iPVKBAzaQXLUeVP95xG76mWq4iZ6dmsrybKgzxGzlMPdTi.w-1Z7BJ_VDJmNA2k
-Password: 881672
-
-Session 2: https://sap.zoom.us/rec/play/xzYFMntjQ9hboFVrH2SuPUq6wAPWFnK1IPex8oGx4NZDqg0Dam15ZBqeRbCqUQgD_8tmbPUbbdr7K1w.rt9nEMcT-jB2X9Zh
-Password: 277239
-
----------------------------------------------------------------------------------------
-
-EMEA:
-
-Session 1: https://sap.zoom.us/rec/play/vv0yuhU_ORpnvCOjx0JVXj4-eSeVc1DzYmr4HiziYkl5NDmn_R4rlJWTe-KTeReqKyi9oY2Rsy_PiVM.j8qL4XUFMYqmYwmQ
-Password: 187616
-
-Session 2: https://sap.zoom.us/rec/play/X61QnVsEyVo22aT_WFanj7i3T0hVOu2EoiXlWu7dPFkdV8xLQv9BrtK9Gn8V6KqVVPZJDB1JcOXBQ1zH.wD8it3xeDd3CwsFL
-Password: 598148
+Session 1: https://sap.zoom.us/rec/play/F6Lh667IBvqarYEW-yO96g0FPwNNLiHBEhf2bw9GJUmfl90SaYuuJpwEDRz_mRBS0Ev7bZJ7ICzRPB7R.H9EBrHw5Ubkzbtax
+Password: 091423
 

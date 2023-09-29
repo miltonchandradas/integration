@@ -8,3 +8,6 @@ AMERICAS:
 Session 1: https://sap.zoom.us/rec/play/F6Lh667IBvqarYEW-yO96g0FPwNNLiHBEhf2bw9GJUmfl90SaYuuJpwEDRz_mRBS0Ev7bZJ7ICzRPB7R.H9EBrHw5Ubkzbtax
 Password: 091423
 
+Session 2: https://sap.zoom.us/rec/play/WuZlnlNW4FGdXmtqekEzr1S5udDuHVEQevm1NUImwX3wNrMxwCHYIZlpBNO64nMlEwFr6LmAIekX49l0.hfyWRb8-d8lDV6mM
+Password: 358636
+

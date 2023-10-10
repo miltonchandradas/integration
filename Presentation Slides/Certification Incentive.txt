@@ -1,0 +1,16 @@
+Slide 1 Notes:
+
+As promised in the first session let me share a few details around the certification incentive which is a great opportunity to get certified free of charge as long as you fulfil the eligibility criteria.
+
+As you can see on the screen this is available to eligible PE Sell partners, partner needs to certify at least 5 consultants on BTP, and can get a reimbursement on the certification attempt costs up to a certain amount. Please note that this certification incentive is not limited to <the topic you are covering today> but a broad number of SAP BTP Certifications.
+
+Please check the link for all the details.
+APJ Region:  https://partnerbenefitscatalog.sap.com/Partner-Benefits-Catalog/Marketing-%26-Demand-Generation/Training-%26-Enablement/APJ-Partner-Cloud-Capacity-Program/p/1001201
+Other Regions:  https://partnerbenefitscatalog.sap.com/Partner-Benefits-Catalog/Innovation/Partner-Cloud-Certification-Initiative/p/1001142
+
+
+
+Slide 2 Notes:
+These are how you book the certification attempts and also the items which are eligible for the incentive, but again, please check all the details via the link on the previous page.
+
+Please note, the Partner company that you work for may already have purchased learning hub subscriptions or other methods of obtaining certification attempts, so please check with your relevant colleague (e.g. consultant manager) how to best approach this.

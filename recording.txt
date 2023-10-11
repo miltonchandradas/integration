@@ -11,3 +11,10 @@ Password: 091423
 Session 2: https://sap.zoom.us/rec/play/WuZlnlNW4FGdXmtqekEzr1S5udDuHVEQevm1NUImwX3wNrMxwCHYIZlpBNO64nMlEwFr6LmAIekX49l0.hfyWRb8-d8lDV6mM
 Password: 358636
 
+---------------------------------------------------------------------------------------
+EMEA:
+
+Session 1: https://sap.zoom.us/rec/play/t3P6Hp-gryAbZ5lSc5WreIin2FOqhSPiEcpwHexwhCVIe8OxFUxmLLs9eU3kA3cqkuweR0iNUiV_3eM.I74e9-20e0tfEwx2
+Password: 532631
+
+

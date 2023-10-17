@@ -1,6 +1,6 @@
 <feed xmlns="http://www.w3.org/2005/Atom"
     xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-    xmlns:dataservices="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
+    xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">
     <id>https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')/ToSalesOrderLineItems</id>
     <title type="text">SalesOrderLineItemSet</title>
     <updated>2023-06-03T11:54:12Z</updated>

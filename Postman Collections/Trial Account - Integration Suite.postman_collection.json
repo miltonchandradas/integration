@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "909aff1d-d5be-44aa-83a3-6c570a5dfe01",
+		"name": "Trial Account - Integration Suite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "228851"
+	},
+	"item": [
+		{
+			"name": "SOAP Inbound request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{sappassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{sapid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n <soapenv:Header/>\r\n <soapenv:Body>\r\n <List>\r\n <Product>\r\n <ProductID>HT-1023</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1032</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1035</ProductID>\r\n </Product>\r\n </List>\r\n </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}cxf/send/message",
+					"host": [
+						"{{baseURL}}cxf"
+					],
+					"path": [
+						"send",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "In Out MEP",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{sappassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{sapid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Partner Academy\",\r\n    \"topic\": \"SAP Integration Suite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}http/inout",
+					"host": [
+						"{{baseURL}}http"
+					],
+					"path": [
+						"inout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "In MEP",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{sappassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{sapid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n <soapenv:Header/>\r\n <soapenv:Body>\r\n <List>\r\n <Product>\r\n <ProductID>HT-1000</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1020</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1035</ProductID>\r\n </Product>\r\n </List>\r\n </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}cxf/in",
+					"host": [
+						"{{baseURL}}cxf"
+					],
+					"path": [
+						"in"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{sappassword}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{sapid}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

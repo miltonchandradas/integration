@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xml" href="SalesOrders.xsl" version="3.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom"
     xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
     xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xml:base="https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/">

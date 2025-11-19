@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "3e7b422e-85ef-42f8-b3e7-ba71e4c5c90a",
+		"name": "S4U System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "228851"
+	},
+	"item": [
+		{
+			"name": "Catalog Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/IWFND/CATALOGSERVICE;v=2?$format=json",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE;v=2"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/$metadata",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE;v=2",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Collection URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/ServiceCollection?$format=json",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE;v=2",
+						"ServiceCollection"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Collection URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/CatalogCollection?$format=json",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE;v=2",
+						"CatalogCollection"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata Document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC?$format=json",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet?$format=json&$top=5",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						},
+						{
+							"key": "$top",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$format=json&$top=1000&$select=CustomerID,CustomerName&$inlinecount=allpages",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"SalesOrderSet"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						},
+						{
+							"key": "$top",
+							"value": "1000"
+						},
+						{
+							"key": "$select",
+							"value": "CustomerID,CustomerName"
+						},
+						{
+							"key": "$inlinecount",
+							"value": "allpages"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product HT-1035",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')?$select=ProductID,Category,Name",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('HT-1035')"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "ProductID,Category,Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Product X",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('X')",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('X')"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Orders count HT-1035",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')/ToSalesOrderLineItems/$count",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('HT-1035')",
+						"ToSalesOrderLineItems",
+						"$count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Order ID and Item Position HT-1000",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet(ProductID='HT-1035')/ToSalesOrderLineItems?$top=2",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet(ProductID='HT-1035')",
+						"ToSalesOrderLineItems"
+					],
+					"query": [
+						{
+							"key": "$top",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Customer ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000040')/ToHeader",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000040')",
+						"ToHeader"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Customer Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{S4Uhost}}/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet('0500000001')/ToBusinessPartner?$format=json",
+					"host": [
+						"{{S4Uhost}}"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"SalesOrderSet('0500000001')",
+						"ToBusinessPartner"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{S4Upassword}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{S4Uusername}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

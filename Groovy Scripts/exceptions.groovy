@@ -15,6 +15,8 @@ def Message processData(Message message) {
  }
  message.setHeader("Content-Type", "application/xml")
  message.setHeader("CamelHttpResponseCode", 500)
+
+message.setProperty("MyHeader", "MyValue")
  message.setBody(stringWriter.toString());
  def messageLog = messageLogFactory.getMessageLog(message);
  if(messageLog != null) {
@@ -23,3 +25,5 @@ message.getBody(), "text/plain")
  }
  return message;
 }
+
+

@@ -3,24 +3,23 @@
 		"_postman_id": "443abb0b-e221-4445-b0aa-3340eeff96fe",
 		"name": "SAP Gateway Demo System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "228851",
-		"_collection_link": "https://blue-spaceship-343355.postman.co/workspace/SAP-Integration-Suite~15bdd020-433d-4e74-923e-b86791ad2745/collection/228851-443abb0b-e221-4445-b0aa-3340eeff96fe?action=share&creator=228851&source=collection_link"
+		"_exporter_id": "228851"
 	},
 	"item": [
 		{
-			"name": "Product HT-1000",
+			"name": "Catalog Service",
 			"request": {
 				"auth": {
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "{{password}}",
+							"key": "username",
+							"value": "{{username}}",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "{{username}}",
+							"key": "password",
+							"value": "{{password}}",
 							"type": "string"
 						}
 					]
@@ -28,7 +27,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1000')?$format=json",
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWFND/CATALOGSERVICE?$format=json",
 					"protocol": "https",
 					"host": [
 						"sapes5",
@@ -39,9 +38,8 @@
 						"sap",
 						"opu",
 						"odata",
-						"iwbep",
-						"GWSAMPLE_BASIC",
-						"ProductSet('HT-1000')"
+						"IWFND",
+						"CATALOGSERVICE"
 					],
 					"query": [
 						{
@@ -54,7 +52,7 @@
 			"response": []
 		},
 		{
-			"name": "Sales Orders count HT-1000",
+			"name": "Catalog Metadata",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -74,7 +72,139 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1000')/ToSalesOrderLineItems/$count",
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWFND/CATALOGSERVICE/$metadata",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Collection URL",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWFND/CATALOGSERVICE/ServiceCollection?$format=json",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE",
+						"ServiceCollection"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Collection URL",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/IWFND/CATALOGSERVICE/CatalogCollection?$format=json",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"IWFND",
+						"CATALOGSERVICE",
+						"CatalogCollection"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata Document",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata",
 					"protocol": "https",
 					"host": [
 						"sapes5",
@@ -87,7 +217,286 @@
 						"odata",
 						"iwbep",
 						"GWSAMPLE_BASIC",
-						"ProductSet('HT-1000')",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Document",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC?$format=json",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet?$format=json&$top=5",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						},
+						{
+							"key": "$top",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Orders",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet?$format=json&$top=1000&$select=CustomerID,CustomerName&$inlinecount=allpages",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"SalesOrderSet"
+					],
+					"query": [
+						{
+							"key": "$format",
+							"value": "json"
+						},
+						{
+							"key": "$top",
+							"value": "1000"
+						},
+						{
+							"key": "$select",
+							"value": "CustomerID,CustomerName"
+						},
+						{
+							"key": "$inlinecount",
+							"value": "allpages"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product HT-1035",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')?$select=ProductID,Category,Name",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('HT-1035')"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "ProductID,Category,Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Product X",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('X')",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('X')"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sales Orders count HT-1035",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')/ToSalesOrderLineItems/$count",
+					"protocol": "https",
+					"host": [
+						"sapes5",
+						"sapdevcenter",
+						"com"
+					],
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"iwbep",
+						"GWSAMPLE_BASIC",
+						"ProductSet('HT-1035')",
 						"ToSalesOrderLineItems",
 						"$count"
 					]
@@ -116,7 +525,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1000')/ToSalesOrderLineItems",
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('HT-1035')/ToSalesOrderLineItems?$top=2",
 					"protocol": "https",
 					"host": [
 						"sapes5",
@@ -129,8 +538,14 @@
 						"odata",
 						"iwbep",
 						"GWSAMPLE_BASIC",
-						"ProductSet('HT-1000')",
+						"ProductSet('HT-1035')",
 						"ToSalesOrderLineItems"
+					],
+					"query": [
+						{
+							"key": "$top",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -157,7 +572,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000070')/ToHeader?$format=json",
+					"raw": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000040')/ToHeader",
 					"protocol": "https",
 					"host": [
 						"sapes5",
@@ -170,14 +585,8 @@
 						"odata",
 						"iwbep",
 						"GWSAMPLE_BASIC",
-						"SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000070')",
+						"SalesOrderLineItemSet(SalesOrderID='0500000001',ItemPosition='0000000040')",
 						"ToHeader"
-					],
-					"query": [
-						{
-							"key": "$format",
-							"value": "json"
-						}
 					]
 				}
 			},
@@ -224,138 +633,6 @@
 						{
 							"key": "$format",
 							"value": "json"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SOAP Inbound request",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{sappassword}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{sapid}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n <soapenv:Header/>\r\n <soapenv:Body>\r\n <List>\r\n <Product>\r\n <ProductID>HT-1000</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1020</ProductID>\r\n </Product>\r\n <Product>\r\n <ProductID>HT-1035</ProductID>\r\n </Product>\r\n </List>\r\n </soapenv:Body>\r\n</soapenv:Envelope>",
-					"options": {
-						"raw": {
-							"language": "xml"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}cxf/send/message",
-					"host": [
-						"{{baseURL}}cxf"
-					],
-					"path": [
-						"send",
-						"message"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "My First iFlow",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{sappassword}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{sapid}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}http/Products",
-					"host": [
-						"{{baseURL}}http"
-					],
-					"path": [
-						"Products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "My Second iFlow",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}http/Products2",
-					"host": [
-						"{{baseURL}}http"
-					],
-					"path": [
-						"Products2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "My Third iFlow",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "id",
-						"value": "4",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}http/Products3?id=3",
-					"host": [
-						"{{baseURL}}http"
-					],
-					"path": [
-						"Products3"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "3"
 						}
 					]
 				}

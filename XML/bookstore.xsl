@@ -5,24 +5,31 @@
         <html>
             <body>
                 <h1>Bookstore Info</h1>
-                <ul>
+                 <ul>
                     <xsl:for-each select="/bookstore/book">
-                        <li><b>ID:</b> <xsl:value-of select="@id"/>
+                        <li>
+                            <b>ID:</b>
+                            <xsl:value-of select="@id"/>
 
                         </li>
                         <p>
-                            <b>Title:</b> <xsl:value-of select="title"/><br></br>
-                            <b>Author:</b> 
+                            <b>Title:</b>
+                            <xsl:value-of select="title"/>
+                            <br></br>
+                            <b>Author:</b>
                             <xsl:for-each select="./author">
                                 <xsl:value-of select="."/>,
-                            </xsl:for-each><br></br>                         
-                            
-                            <b>Price:</b> <xsl:value-of select="price"/><br></br>
-                    </p>
+                            </xsl:for-each>
+                            <br></br>
 
-                </xsl:for-each>
-            </ul>  
-        </body>
-    </html>
-</xsl:template>
+                            <b>Price:</b>
+                            <xsl:value-of select="price"/>
+                            <br></br>
+                        </p>
+
+                    </xsl:for-each>
+                </ul>   
+            </body>
+        </html>
+    </xsl:template>
 </xsl:stylesheet>
